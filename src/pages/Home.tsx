@@ -1,6 +1,10 @@
+import NavBar from "../components/organisms/NavBar"
+
 const Home = () => {
   return (
-    <div></div>
+    <>
+      <NavBar />
+    </>
   )
 }
 
