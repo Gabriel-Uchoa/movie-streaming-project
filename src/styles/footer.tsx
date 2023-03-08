@@ -1,13 +1,10 @@
 import styled from "styled-components";
 
 export const StyleFooter = styled.footer`
-    width: 100vw;
+    width: 100%;
     bottom: 0;
-    position: absolute;
     display: flex;
     color: #FFFFFF;
-    background-color: #1E1E1E;
-    padding: 20px 0px;
 `
 
 export const DescribeFooter = styled.section`
