@@ -15,6 +15,7 @@ export const Container = styled.div`
 
 export const StyleForm = styled.form`
     display: flex;
+    width: 400px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
