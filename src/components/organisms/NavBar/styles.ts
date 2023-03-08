@@ -10,7 +10,7 @@ export const NavBarStyle = styled.nav`
     align-items: center;
 `
 
-export const DivNavBar = styled.div`
+export const DivNavBar = styled.nav`
     display: flex;
     gap: 45px;
     align-items: center;

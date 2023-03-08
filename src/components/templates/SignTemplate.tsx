@@ -1,14 +1,14 @@
 import Footer from "../organisms/Footer"
 import NavBar from "../organisms/NavBar"
-import MoviePage from "../organisms/MoviePage"
-const HomePage: React.FC = () => {
+import RenderSign from "../organisms/Sign"
+const SignTemplate: React.FC = () => {
     return (
         <>
             <NavBar />
-            <MoviePage />
+            <RenderSign />
             <Footer />
         </>
     )
 }
 
-export default HomePage
+export default SignTemplate

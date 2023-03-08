@@ -5,7 +5,7 @@ import SignUp from "./SignUp/SignUp"
 import { AreaButtons, Container, Span } from "./styles"
 
 const RenderSign = () => {
-    const [newUser, setNewUser] = useState(false)
+    const [newUser, setNewUser] = useState(true)
 
     const SpanLeft = styled(Span)`
         background-color: ${newUser ? "#1111117f" : "#111111"};

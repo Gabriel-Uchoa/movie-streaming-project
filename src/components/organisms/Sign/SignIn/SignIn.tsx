@@ -1,4 +1,5 @@
 import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import getUsersApi from "../../../../api/getUsersApi";
 import ButtonForm from "../../../atoms/ButtonForm";
@@ -6,6 +7,8 @@ import FormField from "../../../molecules/FormField";
 import { StyleForm } from "../styles";
 
 const SignIn = () => {
+    const navigate = useNavigate();
+
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -18,6 +21,8 @@ const SignIn = () => {
         onSubmit: (values) => {
             console.log(values)
             console.log(getUsersApi().then(result => console.log(result)))
+            localStorage.setItem("user-token", "logado")
+            navigate('/')
         },
     });
     return (
