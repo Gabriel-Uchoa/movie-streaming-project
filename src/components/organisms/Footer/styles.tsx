@@ -70,7 +70,7 @@ export const NavFooter = styled.section`
     flex-direction: column;
     justify-content: space-around;
     gap: 20px;
-    padding: 30px 80px;
+    padding: 30px 50px;
 `
 
 export const Row = styled.div`
