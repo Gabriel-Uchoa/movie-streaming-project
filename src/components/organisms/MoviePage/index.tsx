@@ -8,6 +8,8 @@ const MoviePage: React.FC = () => {
             <MovieCard />
             <MovieCard />
             <MovieCard />
+            <MovieCard />
+            <MovieCard />
         </DivMoviePage>
     )
 }
