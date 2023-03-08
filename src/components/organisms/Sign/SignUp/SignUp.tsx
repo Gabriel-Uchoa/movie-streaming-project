@@ -1,5 +1,6 @@
 import { useFormik } from "formik";
 import * as yup from "yup";
+import postUsersApi from "../../../../api/postUsersApi";
 import ButtonForm from "../../../atoms/ButtonForm";
 import FormField from "../../../molecules/FormField";
 import { DualInput, StyleForm } from "../styles";
@@ -12,7 +13,7 @@ const SignUp = () => {
             password: '',
             password_confirm: '',
             email: '',
-            url_profile_img: '',
+            picture: '',
             phone: '',
         },
         validationSchema: yup.object({
@@ -22,10 +23,18 @@ const SignUp = () => {
             password_confirm: yup.string().required("Required").oneOf([yup.ref('password')], 'Your passwords do not match.'),
             email: yup.string().email("This email is invalid.").required("Is required"),
             phone: yup.string().required("Is required"),
-            url_profile_img: yup.string().url("This Url is Invalid").required("Is required")
+            picture: yup.string().url("This Url is Invalid").required("Is required")
         }),
         onSubmit: (values) => {
             console.log(values)
+            postUsersApi(
+                {
+                    name: values.first_name.toLowerCase() + " " + values.last_name.toLowerCase(),
+                    email: values.email.toLowerCase(),
+                    password: values.password,
+                    phone: values.phone,
+                    picture: values.picture
+                })
         },
     });
     return (
@@ -86,11 +95,11 @@ const SignUp = () => {
                 />
                 <FormField
                     label="Avatar url"
-                    name="url_profile_img"
+                    name="picture"
                     onChange={formik.handleChange}
                     placeholder="your picture in url"
-                    value={formik.values.url_profile_img}
-                    error={formik.errors.url_profile_img}
+                    value={formik.values.picture}
+                    error={formik.errors.picture}
                 />
             </DualInput>
             <ButtonForm textContent="Sign up" handleClick={formik.submitForm} />

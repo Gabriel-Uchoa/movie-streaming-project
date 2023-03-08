@@ -1,9 +1,9 @@
 import { useFormik } from "formik";
 import * as yup from "yup";
+import getUsersApi from "../../../../api/getUsersApi";
 import ButtonForm from "../../../atoms/ButtonForm";
 import FormField from "../../../molecules/FormField";
 import { StyleForm } from "../styles";
-
 
 const SignIn = () => {
     const formik = useFormik({
@@ -17,6 +17,7 @@ const SignIn = () => {
         }),
         onSubmit: (values) => {
             console.log(values)
+            console.log(getUsersApi().then(result => console.log(result)))
         },
     });
     return (
