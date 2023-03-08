@@ -1,4 +1,4 @@
-import { TitleStyle } from "../../styles/navBar"
+import { TitleStyle } from "./styles"
 
 const TitleApp: React.FC = () => {
     return (

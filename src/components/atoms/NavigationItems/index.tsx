@@ -1,4 +1,4 @@
-import { NavigationItemStyle } from "../../styles/navBar"
+import { NavigationItemStyle } from "./styles"
 
 const NavigationItems: React.FC<{ item: string }> = (props) => {
     return (

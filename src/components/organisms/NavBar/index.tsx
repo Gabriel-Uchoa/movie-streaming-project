@@ -1,8 +1,8 @@
-import NavigationItems from "../atoms/NavigationItems"
-import SearchItem from "../molecules/SearchItem"
-import TitleApp from "../atoms/TitleApp"
-import ProfileArea from "../molecules/ProfileArea"
-import { DivNavBar, NavBarStyle } from "../../styles/navBar"
+import NavigationItems from "../../atoms/NavigationItems"
+import SearchItem from "../../molecules/SearchItem"
+import TitleApp from "../../atoms/TitleApp"
+import ProfileArea from "../../molecules/ProfileArea"
+import { DivNavBar, NavBarStyle } from "./styles"
 
 const NavBar = () => {
     return (

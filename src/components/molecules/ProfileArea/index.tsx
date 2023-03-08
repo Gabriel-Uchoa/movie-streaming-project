@@ -1,4 +1,4 @@
-import { ImageProfile, RightSideNavBar } from "../../styles/navBar"
+import { ImageProfile, RightSideNavBar } from "./styles"
 
 const ProfileArea: React.FC = () => {
     return (

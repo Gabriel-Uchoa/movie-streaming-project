@@ -1,12 +1,8 @@
-import Footer from "../components/organisms/Footer"
-import NavBar from "../components/organisms/NavBar"
+import HomePage from "../components/templates/HomePage"
 
 const Home = () => {
   return (
-    <>
-      <NavBar />
-      <Footer />
-    </>
+    <HomePage />
   )
 }
 
