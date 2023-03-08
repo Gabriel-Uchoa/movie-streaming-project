@@ -16,8 +16,6 @@ const GlobalStyle = createGlobalStyle`
 
 const Background = styled.section`
   background: linear-gradient(160deg, #000000 -2.92%, rgba(0, 0, 0, 0) 100%);
-  width: 100vw;
-  height: 100vh;
 `
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
