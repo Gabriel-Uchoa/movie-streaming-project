@@ -1,4 +1,4 @@
-import { StyleFooter, DescribeFooter, TitleDescribe, Paragraph, NewsLetter, NewsLetterInput, NavFooter, Row, Column, Heading, FooterLink, Contact } from "./styles"
+import { StyleFooter, DescribeFooter, TitleDescribe, Paragraph, NewsLetter, NewsLetterInput, NavFooter, Row, Heading, FooterLink, Contact, Column } from "./styles"
 
 const Footer = () => {
     return (
