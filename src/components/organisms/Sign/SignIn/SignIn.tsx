@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
-import getUsersApi from "../../../../api/getUsersApi";
+import getUsersApi from "../../../../services/api/getUsersApi";
 import ButtonForm from "../../../atoms/ButtonForm";
 import FormField from "../../../molecules/FormField";
 import { StyleForm } from "../styles";

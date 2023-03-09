@@ -2,11 +2,13 @@ import styled from "styled-components";
 
 export const DivMovieCard = styled.div`
     background-color: grey;
+    background: url(${props => props.datatype});
+    background-size: 250px;
     height: 360px;
     border-radius: 2px;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 15px;
     justify-content: space-between;
     margin-top: 30px;
     cursor: pointer;

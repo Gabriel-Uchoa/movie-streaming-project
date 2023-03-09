@@ -1,5 +1,5 @@
 import { useState } from "react"
-import getUsersApi, { ApiResponse } from "../api/getUsersApi"
+import getUsersApi, { ApiResponse } from "../services/api/getUsersApi"
 
 interface Users {
     name: string,

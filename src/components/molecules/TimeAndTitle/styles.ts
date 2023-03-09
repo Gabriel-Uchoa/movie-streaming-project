@@ -10,4 +10,10 @@ export const DivTime = styled.div`
     font-size: 12px;
     gap: 5px;
     margin-bottom: 5px;
+    text-shadow: 0.1em 0.1em 0.2em black
+`
+
+export const MovieTitle = styled.h1`
+    font-size: 20px;
+    text-shadow: 0.1em 0.1em 0.2em black
 `

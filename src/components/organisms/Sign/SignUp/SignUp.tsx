@@ -2,7 +2,7 @@ import { useFormik } from "formik";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
-import postUsersApi from "../../../../api/postUsersApi";
+import postUsersApi from "../../../../services/api/postUsersApi";
 import EmailUsed from "../../../../utils/EmailUsed";
 import ButtonForm from "../../../atoms/ButtonForm";
 import FormField from "../../../molecules/FormField";

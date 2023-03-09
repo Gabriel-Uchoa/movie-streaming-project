@@ -1,8 +1,8 @@
-import HomePage from "../components/templates/HomePage"
+import HomeTemplate from "../components/templates/HomeTemplate"
 
 const Home = () => {
   return (
-    <HomePage />
+    <HomeTemplate />
   )
 }
 
