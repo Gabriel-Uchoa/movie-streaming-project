@@ -18,13 +18,18 @@ const SignIn = () => {
             email: yup.string().email("This email is invalid.").required("This field is required"),
             password: yup.string().required("This field is required"),
         }),
-        onSubmit: (values) => {
-            console.log(values)
-            console.log(getUsersApi().then(result => console.log(result)))
-            localStorage.setItem("user-token", "logado")
-            navigate('/')
+        onSubmit: async (values) => {
+            console.log(values);
+            const response = await getUsersApi();
+            if (response) {
+                const users = response.users;
+                console.log(users);
+            }
+            localStorage.setItem("user-token", "logado");
+            navigate('/');
         },
     });
+
     return (
         <div>
             <StyleForm onSubmit={formik.handleSubmit} >
@@ -53,4 +58,4 @@ const SignIn = () => {
     )
 }
 
-export default SignIn
+export default SignIn;

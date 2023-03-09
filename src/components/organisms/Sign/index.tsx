@@ -10,10 +10,16 @@ const RenderSign = () => {
     const SpanLeft = styled(Span)`
         background-color: ${newUser ? "#1111117f" : "#111111"};
         border-radius: 10px 0px 0px 10px;
+        @media screen and (max-width: 768px){
+            border-radius: 10px 10px 0px 0px;
+        }
     `
     const SpanRight = styled(Span)`
         background-color: ${newUser ? "#111111" : "#1111117f"};
         border-radius: 0px 10px 10px 0px;
+        @media screen and (max-width: 768px){
+            border-radius: 0px 0px 10px 10px;
+        }
 
     `
     const HanldeToSignUp = () => {

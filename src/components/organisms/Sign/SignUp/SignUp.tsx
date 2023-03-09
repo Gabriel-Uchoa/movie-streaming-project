@@ -1,44 +1,63 @@
 import { useFormik } from "formik";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import postUsersApi from "../../../../api/postUsersApi";
+import EmailUsed from "../../../../utils/EmailUsed";
 import ButtonForm from "../../../atoms/ButtonForm";
 import FormField from "../../../molecules/FormField";
 import { DualInput, StyleForm } from "../styles";
 
 const SignUp = () => {
+    const [exist, setExiste] = useState(false);
+    const navigate = useNavigate();
+
     const formik = useFormik({
         initialValues: {
-            first_name: '',
-            last_name: '',
-            password: '',
-            password_confirm: '',
-            email: '',
-            picture: '',
-            phone: '',
+            first_name: "",
+            last_name: "",
+            password: "",
+            email: "",
+            picture: "",
+            phone: "",
         },
         validationSchema: yup.object({
             first_name: yup.string().required("Is required"),
             last_name: yup.string().required("Is required"),
-            password: yup.string().min(5, 'Password is short - 5 chars minimum.').required("Is required"),
-            password_confirm: yup.string().required("Required").oneOf([yup.ref('password')], 'Your passwords do not match.'),
-            email: yup.string().email("This email is invalid.").required("Is required"),
+            password: yup
+                .string()
+                .min(5, "Password is short - 5 chars minimum.")
+                .required("Is required"),
+            email: yup
+                .string()
+                .email("This email is invalid.")
+                .required("Is required")
+                .test("EmailInUse", "E-mail already registered", function () {
+                    formik.values.password = "";
+                    EmailUsed(formik.values.email).then((resolve) => {
+                        setExiste(!resolve);
+                    });
+                    return exist;
+                }),
+
             phone: yup.string().required("Is required"),
-            picture: yup.string().url("This Url is Invalid").required("Is required")
+            picture: yup.string().url("This Url is Invalid").required("Is required"),
         }),
-        onSubmit: (values) => {
-            console.log(values)
-            postUsersApi(
-                {
-                    name: values.first_name.toLowerCase() + " " + values.last_name.toLowerCase(),
-                    email: values.email.toLowerCase(),
-                    password: values.password,
-                    phone: values.phone,
-                    picture: values.picture
-                })
+        onSubmit: async (values) => {
+            await postUsersApi({
+                name: values.first_name.toLowerCase() + " " + values.last_name.toLowerCase(),
+                email: values.email.toLowerCase(),
+                password: values.password,
+                phone: values.phone,
+                picture: values.picture,
+            });
+            alert("Usuário cadastro com sucesso");
+            navigate("/");
         },
     });
+
     return (
-        <StyleForm onSubmit={formik.handleSubmit} >
+        <StyleForm onSubmit={formik.handleSubmit}>
             <h1>Sign up</h1>
             <DualInput>
                 <FormField
@@ -59,6 +78,14 @@ const SignUp = () => {
                 />
             </DualInput>
             <FormField
+                label="Email Adress"
+                name="email"
+                onChange={formik.handleChange}
+                placeholder="your e-mail"
+                value={formik.values.email}
+                error={formik.errors.email}
+            />
+            <FormField
                 label="Password"
                 name="password"
                 type="password"
@@ -66,23 +93,6 @@ const SignUp = () => {
                 placeholder="your password"
                 value={formik.values.password}
                 error={formik.errors.password}
-            />
-            <FormField
-                label="Confirm Password"
-                name="password_confirm"
-                type="password"
-                onChange={formik.handleChange}
-                placeholder="Confirm your password"
-                value={formik.values.password_confirm}
-                error={formik.errors.password_confirm}
-            />
-            <FormField
-                label="Email Adress"
-                name="email"
-                onChange={formik.handleChange}
-                placeholder="your e-mail"
-                value={formik.values.email}
-                error={formik.errors.email}
             />
             <DualInput>
                 <FormField
@@ -104,7 +114,7 @@ const SignUp = () => {
             </DualInput>
             <ButtonForm textContent="Sign up" handleClick={formik.submitForm} />
         </StyleForm>
-    )
-}
+    );
+};
 
 export default SignUp
