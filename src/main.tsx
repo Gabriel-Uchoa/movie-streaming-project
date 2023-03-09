@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import LastWatch from './pages/LastWatch'
 import Movies from './pages/Movies'
 import Sign from './pages/Sign'
+import store from './store'
 import ProtectedRoute from './utils/ProtectedRoute'
 
 const GlobalStyle = createGlobalStyle`
@@ -20,22 +21,24 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Background = styled.section`
-  background: linear-gradient(160deg, #000000 -2.92%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(to right, #000000, #bdbdbd);
 `
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <Background>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<ProtectedRoute><Home /></ProtectedRoute>} />
-          <Route path="/login" element={<Sign />} />
-          <Route path="/movies" element={<ProtectedRoute><Movies /></ProtectedRoute>} />
-          <Route path="/last_watch" element={<ProtectedRoute><LastWatch /></ProtectedRoute>} />
-          <Route path="/favorites" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
-        </Routes>
-        <GlobalStyle />
-      </BrowserRouter>
-    </Background>
+    <Provider store={store}>
+      <Background>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<ProtectedRoute><Home /></ProtectedRoute>} />
+            <Route path="/login" element={<Sign />} />
+            <Route path="/movies" element={<ProtectedRoute><Movies /></ProtectedRoute>} />
+            <Route path="/last_watch" element={<ProtectedRoute><LastWatch /></ProtectedRoute>} />
+            <Route path="/favorites" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
+          </Routes>
+          <GlobalStyle />
+        </BrowserRouter>
+      </Background>
+    </Provider>
   </React.StrictMode>,
 )

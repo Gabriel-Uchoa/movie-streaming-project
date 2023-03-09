@@ -38,7 +38,7 @@ const NavBar = () => {
             <DivNavBar>
                 <SearchItem />
                 {isLoggedIn ? <ProfileArea /> : null}
-                {isLoggedIn ? <NavigationItems item="logout" href="/login" handleClick={logout} /> : null}
+                {isLoggedIn ? <NavigationItems item="Logout" href="/login" handleClick={logout} /> : null}
                 {isLoggedIn ? null : <NavigationItems item="Login" href="/login" handleClick={logout} />}
             </DivNavBar>
         </NavBarStyle>

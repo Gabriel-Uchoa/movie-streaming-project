@@ -1,14 +1,14 @@
 import clockImage from '../../../assets/images/clock.png'
-import { ClockImage, DivTime } from './styles'
+import { ClockImage, DivTime, MovieTitle } from './styles'
 
-const TimeAndTitle: React.FC = () => {
+const TimeAndTitle: React.FC<{title: string, runtime: number}> = (props) => {
     return (
         <div>
             <DivTime>
                 <ClockImage src={clockImage} alt="imagem de um relógio representando a duração do filme" />
-                <span>1h 24min</span>
+                <span>{props.runtime} min</span>
             </DivTime>
-            <h1>Interspace</h1>
+            <MovieTitle>{props.title}</MovieTitle>
         </div>
     )
 }
