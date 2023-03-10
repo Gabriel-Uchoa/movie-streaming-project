@@ -6,10 +6,7 @@ import { getPopularMovies } from "../../services/api/getPopularMovies"
 
 const HomeTemplate: React.FC = () => {
     useEffect(() => {
-        const getData = async () => {
-            await getPopularMovies()
-        }
-        getData()
+        getPopularMovies()
     }, [])
 
     return (
