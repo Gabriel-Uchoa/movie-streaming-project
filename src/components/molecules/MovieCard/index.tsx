@@ -15,5 +15,3 @@ const MovieCard: React.FC<{genres: iGenre[], poster: string, title: string, runt
 }
 
 export default MovieCard
-
-// genres, poster, title, runtime
