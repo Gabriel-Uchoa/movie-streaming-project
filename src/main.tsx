@@ -30,6 +30,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <Provider store={store}>
       <Background>
         <BrowserRouter>
+          <GlobalStyle />
           <Routes>
             <Route path='/' element={<ProtectedRoute><Home /></ProtectedRoute>} />
             <Route path="/login" element={<Sign />} />
@@ -38,7 +39,6 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
             <Route path="/favorites" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
             <Route path="/movie/:id" element={<ProtectedRoute><PageMovie /></ProtectedRoute>} />
           </Routes>
-          <GlobalStyle />
         </BrowserRouter>
       </Background>
     </Provider>

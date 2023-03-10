@@ -35,6 +35,14 @@ const SignIn = () => {
             <StyleForm onSubmit={formik.handleSubmit} >
                 <h1>Log in</h1>
                 <FormField
+                    label="Email Adress"
+                    name="email"
+                    onChange={formik.handleChange}
+                    placeholder="your e-mail"
+                    value={formik.values.email}
+                    error={formik.errors.email}
+                />
+                <FormField
                     label="Password"
                     name="password"
                     type="password"
@@ -42,14 +50,6 @@ const SignIn = () => {
                     placeholder="your password"
                     value={formik.values.password}
                     error={formik.errors.password}
-                />
-                <FormField
-                    label="Email Adress"
-                    name="email"
-                    onChange={formik.handleChange}
-                    placeholder="your e-mail"
-                    value={formik.values.email}
-                    error={formik.errors.email}
                 />
                 <ButtonForm textContent="Log in" handleClick={formik.submitForm} />
 

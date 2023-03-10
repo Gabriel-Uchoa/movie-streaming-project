@@ -6,13 +6,12 @@ import { DivNavBar, NavBarStyle } from "./styles"
 import { useEffect, useState } from "react"
 
 const NavBar = () => {
-    //MELHORAR 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const checkUserToken = () => {
         const userToken = localStorage.getItem('user-token');
         if (!userToken || userToken === 'undefined') {
             setIsLoggedIn(false);
-        }else if(userToken){
+        } else if (userToken) {
             setIsLoggedIn(true);
         }
     }
