@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const DivMoviePage = styled.div`
+export const MainMoviePage = styled.main`
     display: grid;
     grid-template-columns: 250px 250px 250px 250px;
     height: fit-content;
@@ -9,3 +10,7 @@ export const DivMoviePage = styled.div`
     justify-content: space-evenly;
 `
 
+export const LinkStyle = styled(Link)`
+    text-decoration: none;
+    color: white;
+`

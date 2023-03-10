@@ -6,10 +6,11 @@ import styled, { createGlobalStyle } from 'styled-components'
 import Favorites from './pages/Favorites'
 import Home from './pages/Home'
 import LastWatch from './pages/LastWatch'
-import Movies from './pages/Movies'
+import TopMovies from './pages/TopMovies'
 import Sign from './pages/Sign'
 import store from './store'
 import ProtectedRoute from './utils/ProtectedRoute'
+import PageMovie from './pages/PageMovie'
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -32,9 +33,10 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           <Routes>
             <Route path='/' element={<ProtectedRoute><Home /></ProtectedRoute>} />
             <Route path="/login" element={<Sign />} />
-            <Route path="/movies" element={<ProtectedRoute><Movies /></ProtectedRoute>} />
+            <Route path="/movies" element={<ProtectedRoute><TopMovies /></ProtectedRoute>} />
             <Route path="/last_watch" element={<ProtectedRoute><LastWatch /></ProtectedRoute>} />
             <Route path="/favorites" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
+            <Route path="/movie/:id" element={<ProtectedRoute><PageMovie /></ProtectedRoute>} />
           </Routes>
           <GlobalStyle />
         </BrowserRouter>
