@@ -10,7 +10,7 @@ export const DivMovieCard = styled.div`
     flex-direction: column;
     padding: 15px;
     justify-content: space-between;
-    margin-top: 30px;
+    margin-bottom: 30px;
     cursor: pointer;
     :hover {
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;    
