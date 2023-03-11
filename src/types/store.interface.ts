@@ -12,9 +12,3 @@ export interface iState {
         moviesList: iMovieDetails[]
     }
 }
-export interface iDataUser {
-    personal_info: User
-    movies_favorites: {
-        movieId: string 
-    }
-}

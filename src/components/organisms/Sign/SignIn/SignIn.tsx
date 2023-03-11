@@ -1,17 +1,15 @@
 import { useFormik } from "formik";
-import { useEffect, useState } from "react";
+
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import getUsersApi from "../../../../services/api/getUsersApi";
-import store from "../../../../store";
-import { setDataUserLogged } from "../../../../store/user/actions";
 import { User } from "../../../../types/user.interface";
 import ButtonForm from "../../../atoms/ButtonForm";
 import FormField from "../../../molecules/FormField";
 import { StyleForm } from "../styles";
 
-const SignIn = () => {
-    const navigate = useNavigate();
+const SignIn = () => {   
+     const navigate = useNavigate();
 
     const formik = useFormik({
         initialValues: {
@@ -31,6 +29,7 @@ const SignIn = () => {
             const authenticatedUser = users.find((user: User) =>
                 user.email === values.email && user.password === values.password
             );
+            console.log(users)
             console.log(authenticatedUser)
             if (authenticatedUser) {
                 localStorage.setItem("user_watchflix_1.0", JSON.stringify({
@@ -41,11 +40,11 @@ const SignIn = () => {
                 }));
                 localStorage.setItem("user_token_watchflix_1.0", "logado");
                 navigate("/");
+
             } else {
                 alert(
                     "Email ou senha incorreto, lembre-se de se cadastrar no nosso sistema."
                 );
-                navigate("/login");
             }
         },
     });
