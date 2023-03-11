@@ -8,7 +8,7 @@ import { useEffect, useState } from "react"
 const NavBar = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const checkUserToken = () => {
-        const userToken = localStorage.getItem('user-token');
+        const userToken = localStorage.getItem('user_token_watchflix_1.0');
         if (!userToken || userToken === 'undefined') {
             setIsLoggedIn(false);
         } else if (userToken) {
