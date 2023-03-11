@@ -1,13 +1,10 @@
 import Footer from "../organisms/Footer"
 import NavBar from "../organisms/NavBar"
 import AllMoviesPage from "../organisms/AllMoviesPage"
-import { useEffect } from "react"
-import { getPopularMovies } from "../../services/api/getPopularMovies"
+import usePopularMovies from "../../hooks/usePopularMovies"
 
 const HomeTemplate: React.FC = () => {
-    useEffect(() => {
-        getPopularMovies()
-    }, [])
+    usePopularMovies()
 
     return (
         <>

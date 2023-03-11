@@ -3,7 +3,7 @@ import MovieGenre from "../../atoms/MovieGenre"
 import TimeAndTitle from "../TimeAndTitle"
 import { DivMovieCard } from "./styles"
 
-const MovieCard: React.FC<{genres: iGenre[], poster: string, title: string, runtime: number}> = (props) => {
+const MovieCard: React.FC<{genres: iGenre[], poster: string, title: string, runtime: string}> = (props) => {
     const imageUrl = `https://image.tmdb.org/t/p/w500${props.poster}`
 
     return (

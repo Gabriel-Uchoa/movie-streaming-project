@@ -13,7 +13,7 @@ const useSelectedMovie = () => {
     useEffect (() => {
         const movie = moviesList.find((movie) => movie.id === Number(id))
         setSelectedMovie(movie)
-    }, [])
+    }, [moviesList, id])
 
     return selectedMovie
 }

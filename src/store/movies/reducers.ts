@@ -13,7 +13,7 @@ const moviesReducer = (state = MOVIES_INICIAL_STATE, action: iAction) => {
                 ...state,
                 moviesList: newMoviesList
             }
-        default: 
+        default:
             return state
     }
 }

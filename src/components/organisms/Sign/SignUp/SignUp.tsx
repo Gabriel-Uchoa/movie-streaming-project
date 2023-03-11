@@ -33,7 +33,6 @@ const SignUp = () => {
                 .email("This email is invalid.")
                 .required("Is required")
                 .test("EmailInUse", "E-mail already registered", function () {
-                    formik.values.password = "";
                     EmailUsed(formik.values.email).then((resolve) => {
                         setExiste(!resolve);
                     });

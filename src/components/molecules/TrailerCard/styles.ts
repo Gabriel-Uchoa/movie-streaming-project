@@ -1,18 +1,16 @@
 import styled from "styled-components";
 
 export const DivTrailerCard = styled.div`
-    background-color: grey;
-    width: 296px;
-    height: 136px;
     display: flex;
-    justify-content: flex-end;
     align-items: flex-end;
+    justify-content: end;
 `
 
 export const TextStyle = styled.span`
     font-size: 25px;
-    font-weight: 600;
     position: relative;
-    top: 12px;
-    right: 5px;
+    font-weight: 600;
+    right: 35px;
+    top: 15px;
+    text-shadow: black 0.1em 0.1em 0.2em;
 `
