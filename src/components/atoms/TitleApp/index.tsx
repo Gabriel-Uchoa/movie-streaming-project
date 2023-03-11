@@ -1,8 +1,8 @@
-import { TitleStyle } from "./styles"
+import { LinkStyle, TitleStyle } from "./styles"
 
 const TitleApp: React.FC = () => {
     return (
-      <TitleStyle>Watchflix</TitleStyle>
+      <LinkStyle to={'/'}> <TitleStyle>Watchflix</TitleStyle> </LinkStyle> 
     )
   }
   

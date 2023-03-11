@@ -6,7 +6,7 @@ export interface iMovieDetails {
     poster_path: string,
     title: string,
     vote_average: number,
-    runtime: number
+    runtime: string
 }
 
 export interface iGenre {

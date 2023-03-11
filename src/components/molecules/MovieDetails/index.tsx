@@ -2,7 +2,6 @@ import useSelectedMovie from "../../../hooks/useSelectedMovie"
 
 const MovieDetails: React.FC = () => {
     const selectedMovie = useSelectedMovie()
-    console.log(selectedMovie?.genres)
 
     const separateGenres = () => {
         const genreArray: string[] = []
@@ -11,14 +10,13 @@ const MovieDetails: React.FC = () => {
                 genreArray.push(genre.name)
             })
         }
-        console.log(genreArray)
         return genreArray
     }
 
     return (
         <>
             <span>Genre: {separateGenres().join(', ')}</span>
-            <span>Duration: {selectedMovie?.runtime} min</span>
+            <span>Duration: {selectedMovie?.runtime}</span>
             <span>Rating: {selectedMovie?.vote_average}</span>
         </>
     )
