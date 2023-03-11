@@ -1,9 +1,11 @@
 import { createStore } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
 import moviesReducer from "./movies/reducers";
+import userReducer from "./user/reducers";
 
 const reducers = combineReducers({
-    movies: moviesReducer
+    movies: moviesReducer,
+    user_info: userReducer
 })
 
 const store = createStore(reducers)

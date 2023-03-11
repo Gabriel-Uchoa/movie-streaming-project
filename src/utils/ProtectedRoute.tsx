@@ -7,7 +7,7 @@ const ProtectedRoute = (props: any) => {
     const navigate = useNavigate();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const checkUserToken = () => {
-        const userToken = localStorage.getItem('user-token');
+        const userToken = localStorage.getItem('user_token_watchflix_1.0');
         if (!userToken || userToken === 'undefined') {
             setIsLoggedIn(false);
             navigate('/login')

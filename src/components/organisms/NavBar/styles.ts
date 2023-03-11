@@ -9,7 +9,7 @@ export const NavBarStyle = styled.nav`
     padding: 30px;
     align-items: center;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1046px) {
         height: auto;
         flex-direction: column;
         padding: 20px;
