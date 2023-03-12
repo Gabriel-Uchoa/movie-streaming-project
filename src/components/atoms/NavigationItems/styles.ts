@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const NavigationItemStyle = styled.a`
+export const NavigationItemStyle = styled(Link)`
     cursor: pointer;
     color: white;
     text-decoration: none;

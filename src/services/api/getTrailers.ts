@@ -6,8 +6,6 @@ const getTrailers = async (movieId: number) => {
 
     const adaptedResponse = adaptGetTrailers(response.data)
 
-    console.log(adaptedResponse)
-
     return adaptedResponse
 }
 

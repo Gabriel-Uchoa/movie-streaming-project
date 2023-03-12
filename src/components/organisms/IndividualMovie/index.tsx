@@ -6,13 +6,11 @@ import MovieTitle from "../../atoms/MovieTitle"
 import MovieCover from "../../molecules/MovieCover"
 import MovieDetails from "../../molecules/MovieDetails"
 import TrailerCard from "../../molecules/TrailerCard"
-import { Span } from "../Sign/styles"
 import { ContainsDivTrailers, DivDetailsMovie, DivTextDetails, DivTrailers, MainIndividualMovie, TrailersTitle } from "./styles"
 
 const IndividualMovie: React.FC = () => {
     const selectedMovie = useSelectedMovie()
     const trailers = useTrailers()
-    console.log(trailers)
 
     if (!selectedMovie) {
         return null;

@@ -9,6 +9,7 @@ export interface iAction {
 
 export interface iState {
     movies: {
-        moviesList: iMovieDetails[]
+        moviesList: iMovieDetails[],
+        lastWatchMoviesList: iMovieDetails[]
     }
 }

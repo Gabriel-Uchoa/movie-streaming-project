@@ -1,6 +1,6 @@
 import HomeTemplate from "../components/templates/HomeTemplate"
 
-const Home = () => {
+const Home: React.FC = () => {
   return (
     <HomeTemplate />
   )
