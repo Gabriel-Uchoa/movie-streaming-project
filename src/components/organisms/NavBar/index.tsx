@@ -54,23 +54,23 @@ const NavBar = () => {
 
                 <DivNavBar>
                     <NavItem>
-                        <NavigationItems item="Home" href="/" />
+                        <NavigationItems item="Home" link="/" />
                     </NavItem>
                     <NavItem>
-                        <NavigationItems item="Filmes" href="/movies" />
+                        <NavigationItems item="Filmes" link="/movies" />
                     </NavItem>
                     <NavItem>
-                        <NavigationItems item="Recentes" href="/last_watch" />
+                        <NavigationItems item="Recentes" link="/last_watch" />
                     </NavItem>
                     <NavItem>
-                        <NavigationItems item="Favoritos" href="/favorites" />
+                        <NavigationItems item="Favoritos" link="/favorites" />
                     </NavItem>
                 </DivNavBar>
                 <DivNavBar>
                     <SearchItem />
                     {isLoggedIn ? <ProfileArea /> : null}
-                    {isLoggedIn ? <NavigationItems item="Logout" href="/login" handleClick={logout} /> : null}
-                    {isLoggedIn ? null : <NavigationItems item="Login" href="/login" handleClick={logout} />}
+                    {isLoggedIn ? <NavigationItems item="Logout" link="/login" handleClick={logout} /> : null}
+                    {isLoggedIn ? null : <NavigationItems item="Login" link="/login" handleClick={logout} />}
                 </DivNavBar>
 
             </NavMenu>

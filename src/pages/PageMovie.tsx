@@ -1,6 +1,6 @@
 import PageMovieTemplate from "../components/templates/PageMovieTemplate"
 
-const PageMovie = () => {
+const PageMovie: React.FC = () => {
     return (
         <PageMovieTemplate />
     )
