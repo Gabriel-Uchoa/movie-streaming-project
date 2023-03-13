@@ -3,14 +3,15 @@ import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import getUsersApi from "../../../../services/api/getUsersApi";
+import store from "../../../../store";
+import { setDataUserLogged } from "../../../../store/user/action";
 import { User } from "../../../../types/user.interface";
 import ButtonForm from "../../../atoms/ButtonForm";
 import FormField from "../../../molecules/FormField";
 import { StyleForm } from "../styles";
 
-const SignIn = () => {   
-     const navigate = useNavigate();
-
+const SignIn = () => {
+    const navigate = useNavigate()
     const formik = useFormik({
         initialValues: {
             email: "",
@@ -24,23 +25,14 @@ const SignIn = () => {
             password: yup.string().required("This field is required"),
         }),
         onSubmit: async (values) => {
-            const response = await getUsersApi();
-            const users = response.users;
-            const authenticatedUser = users.find((user: User) =>
-                user.email === values.email && user.password === values.password
+            const { users } = await getUsersApi();
+            const authenticatedUser = users.find(
+                ({ email, password }: User) => email === values.email && password === values.password
             );
-            console.log(users)
-            console.log(authenticatedUser)
             if (authenticatedUser) {
-                localStorage.setItem("user_watchflix_1.0", JSON.stringify({
-                    id: authenticatedUser.id,
-                    email: authenticatedUser.email,
-                    name: authenticatedUser.name,
-                    picture: authenticatedUser.picture,
-                }));
-                localStorage.setItem("user_token_watchflix_1.0", "logado");
-                navigate("/");
-
+                const { email, id, name, phone, picture } = authenticatedUser;
+                store.dispatch(setDataUserLogged({ email, id, name, phone, picture }));
+                navigate('/')
             } else {
                 alert(
                     "Email ou senha incorreto, lembre-se de se cadastrar no nosso sistema."
@@ -48,7 +40,6 @@ const SignIn = () => {
             }
         },
     });
-
 
     return (
         <div>
@@ -78,3 +69,4 @@ const SignIn = () => {
 };
 
 export default SignIn;
+
