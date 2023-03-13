@@ -16,6 +16,8 @@ import { ContainsDivTrailers, DivDetailsMovie, DivTextDetails, DivTrailers, Main
 
 const IndividualMovie: React.FC = () => {
     const user_info: iDataUser = useSelector((state: any) => state.user_info);
+    const { movies_favorites } = useSelector((state: any) => state.movies);
+
     const [isMovieFavorite, setIsMovieFavorite] = useState(false);
     const selectedMovie = useSelectedMovie();
     const trailers = useTrailers();
@@ -32,11 +34,9 @@ const IndividualMovie: React.FC = () => {
 
     useEffect(() => {
         if (id) {
-            //@ts-expect-error
-            setIsMovieFavorite(user_info.movies_favorites.includes(id) ? true : false);
-
+            setIsMovieFavorite(movies_favorites.includes(id) ? true : false);
         }
-    }, [user_info.movies_favorites, id]);
+    }, [movies_favorites, id]);
 
 
     if (!selectedMovie) {
