@@ -1,3 +1,4 @@
+import { useState } from "react"
 import useSelectedMovie from "../../../hooks/useSelectedMovie"
 import useTrailers from "../../../hooks/useTrailers"
 import FavoriteButton from "../../atoms/FavoriteButton"
@@ -30,9 +31,9 @@ const IndividualMovie: React.FC = () => {
             <ContainsDivTrailers>
                 <TrailersTitle>Trailers</TrailersTitle>
                 <DivTrailers>
-                    {trailers ? trailers.map((trailer, index) => {
-                        return <TrailerCard key={index} keyTrailer={trailer.key} />
-                    }) : null }
+                    {trailers?.length ? trailers.map((trailer, index) => {
+                        return <TrailerCard key={index} keyTrailer={trailer.key} numberTrailer={`0${index + 1}`} />
+                    }) : <span>Esse título não possui trailers para serem exibidos.</span>}
                 </DivTrailers>
             </ContainsDivTrailers>
         </MainIndividualMovie>
