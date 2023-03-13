@@ -1,5 +1,5 @@
-import { string } from "yup"
 import { iMovieDetails } from "./movieDetails.interface"
+import { iFavoriteMovies } from "./movieFavorite.interface"
 import { User } from "./user.interface"
 
 export interface iAction {
@@ -12,4 +12,9 @@ export interface iState {
         moviesList: iMovieDetails[],
         lastWatchMoviesList: iMovieDetails[]
     }
+}
+export interface iDataUser {
+    personal_info: User,
+    logged: boolean
+    movies_favorites: Array<iFavoriteMovies>
 }

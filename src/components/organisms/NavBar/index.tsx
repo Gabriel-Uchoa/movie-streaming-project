@@ -4,11 +4,16 @@ import TitleApp from "../../atoms/TitleApp"
 import ProfileArea from "../../molecules/ProfileArea"
 import { Burger, CloseIcon, DivNavBar, NavBarStyle, NavItem, NavMenu, } from "./styles"
 import { useCallback, useEffect, useLayoutEffect, useState } from "react"
+import { iDataUser } from "../../../types/store.interface"
+import { useSelector } from "react-redux"
+import store from "../../../store"
+import { useLogout } from "../../../store/user/action"
 
 const NavBar = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [width, setWidth] = useState(0)
+
+    const user_data: iDataUser = useSelector((state: any) => state.user_info)
 
     useLayoutEffect(() => {
         function updateWidth() {
@@ -18,34 +23,20 @@ const NavBar = () => {
         return () => window.removeEventListener('resize', updateWidth);
     }, []);
 
-    useEffect(() => {
-        if (width >= 1080) {
-            setIsOpen(false);
-        }
-    }, [width]);
-
-    const checkUserToken = useCallback(() => {
-        const userToken = localStorage.getItem('user_token_watchflix_1.0');
-        if (!userToken || userToken === 'undefined') {
-            setIsLoggedIn(false);
-        } else if (userToken) {
-            setIsLoggedIn(true);
-        }
-    }, []);
-
-    useEffect(() => {
-        checkUserToken();
-    }, [checkUserToken]);
-
     const toggleMenu = useCallback(() => {
         setIsOpen(prevState => !prevState);
     }, []);
 
     const logout = useCallback(() => {
-        setIsLoggedIn(false);
-        localStorage.clear();
+        store.dispatch(useLogout(false))
     }, []);
 
+
+    useEffect(() => {
+        if (width >= 1080) {
+            setIsOpen(false);
+        }
+    }, [width]);
     return (
         <NavBarStyle>
             <TitleApp />
@@ -68,9 +59,9 @@ const NavBar = () => {
                 </DivNavBar>
                 <DivNavBar>
                     <SearchItem />
-                    {isLoggedIn ? <ProfileArea /> : null}
-                    {isLoggedIn ? <NavigationItems item="Logout" link="/login" handleClick={logout} /> : null}
-                    {isLoggedIn ? null : <NavigationItems item="Login" link="/login" handleClick={logout} />}
+                    {user_data.logged ? <ProfileArea /> : null}
+                    {user_data.logged ? <NavigationItems item="Logout" link="/login" handleClick={logout} /> : null}
+                    {user_data.logged ? null : <NavigationItems item="Login" link="/login" handleClick={logout} />}
                 </DivNavBar>
 
             </NavMenu>

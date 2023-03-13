@@ -1,31 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { Fragment } from "react";
+import { useSelector } from "react-redux";
+import Sign from "../pages/Sign";
+import { iDataUser } from "../types/store.interface";
 
-//Referência: https://levelup.gitconnected.com/implement-authentication-and-protect-routes-in-react-135a60b1e16f
+const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
+  const { logged } = useSelector((state: any) => state.user_info);
 
-const ProtectedRoute = (props: any) => {
-    const navigate = useNavigate();
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const checkUserToken = () => {
-        const userToken = localStorage.getItem('user_token_watchflix_1.0');
-        if (!userToken || userToken === 'undefined') {
-            setIsLoggedIn(false);
-            navigate('/login')
-        }
-        setIsLoggedIn(true);
-    }
-    useEffect(() => {
-        checkUserToken();
-    }, [isLoggedIn]);
+  return logged ? <Fragment>{children}</Fragment> : <Sign />;
+};
 
-    return (
-        <React.Fragment>
-            {
-                isLoggedIn ? props.children : null
-            }
-        </React.Fragment>
-    )
-
-
-}
 export default ProtectedRoute;
