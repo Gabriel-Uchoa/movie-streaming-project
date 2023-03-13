@@ -2,7 +2,8 @@ import { iAction } from "../../types/store.interface"
 
 const MOVIES_INICIAL_STATE = {
     moviesList: [],
-    lastWatchMoviesList: []
+    lastWatchMoviesList: [],
+    movies_favorites: []
 }
 
 const moviesReducer = (state = MOVIES_INICIAL_STATE, action: iAction) => {
@@ -22,6 +23,13 @@ const moviesReducer = (state = MOVIES_INICIAL_STATE, action: iAction) => {
             return {
                 ...state,
                 lastWatchMoviesList: newLastWatchMoviesList
+            }
+        case "SET_MOVIES_FAVORITES":
+            if (!state.movies_favorites.includes(action.payload.id)) {
+                return {
+                    ...state,
+                    movies_favorites: [...state.movies_favorites, action.payload],
+                };
             }
         default:
             return state

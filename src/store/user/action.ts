@@ -13,10 +13,3 @@ export const useLogout = (Data: boolean) => {
         payload: Data
     }
 }
-
-export const setMoviesFavorites = (Data: any) => {
-    return {
-        type: "SET_MOVIES_FAVORITES",
-        payload: Data
-    }
-}
