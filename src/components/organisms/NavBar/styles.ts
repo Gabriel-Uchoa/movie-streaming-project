@@ -69,7 +69,7 @@ export const CloseIcon = styled.p`
 
 export const DivNavBar = styled.nav`
     display: flex;
-    gap: 20px;
+    gap: 25px;
     align-items: center;
 
     @media screen and (max-width: 1080px) {

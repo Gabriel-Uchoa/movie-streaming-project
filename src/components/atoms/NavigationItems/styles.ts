@@ -5,14 +5,17 @@ export const NavigationItemStyle = styled(Link)`
     cursor: pointer;
     color: white;
     text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
+    padding: 0.5rem 0;
+    margin: 0 0.7rem;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s ease-in-out;
 
       
   &:hover {
-        background-color: #fff;
+        /* background-color: #fff;
         color: #333;
-        transition: 300ms all;
+        transition: 300ms all; */
+        border-bottom: 4px solid #FED530;
     }
 
   @media screen and (max-width: 768px) {
@@ -25,7 +28,5 @@ export const NavigationItemStyle = styled(Link)`
       border: none;
     }
   }
-
-
 `
 

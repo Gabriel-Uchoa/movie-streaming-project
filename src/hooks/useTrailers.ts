@@ -4,7 +4,7 @@ import getTrailers from "../services/api/getTrailers"
 import { iTrailers } from "../types/trailers.interface"
 
 const useTrailers = () => {
-    const [data, setData] = useState<iTrailers[]>()
+    const [data, setData] = useState<iTrailers[]>([])
     const { id } = useParams()
 
     useEffect(() => {

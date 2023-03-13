@@ -4,7 +4,7 @@ export const DivCover = styled.div`
     width: 500px;
     height: 281px;
     background: url(${props => props.datatype});
-    background-size: 500px;
+    background-size: 100%;
     display: flex;
     align-items: flex-end;
     padding: 20px;

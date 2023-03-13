@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
 export const DivCentralMovie = styled.div`
-    grid-column-start: 1;
-    grid-column-end: 3;
-    width: 100%;
     min-height: 360px;
     background: url(${props => props.datatype});
     background-size: cover;
