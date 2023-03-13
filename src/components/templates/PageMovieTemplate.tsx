@@ -11,7 +11,7 @@ const PageMovieTemplate: React.FC = () => {
         <NavBar />
         <IndividualMovie />
         <Footer />
-    </>
+        </>
     )   
 }
 

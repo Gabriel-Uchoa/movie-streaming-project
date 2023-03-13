@@ -11,6 +11,7 @@ import Sign from './pages/Sign'
 import store from './store'
 import ProtectedRoute from './utils/ProtectedRoute'
 import PageMovie from './pages/PageMovie'
+import SearchPage from './pages/SearchPage'
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -38,6 +39,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
             <Route path="/last_watch" element={<ProtectedRoute><LastWatch /></ProtectedRoute>} />
             <Route path="/favorites" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
             <Route path="/movie/:id" element={<ProtectedRoute><PageMovie /></ProtectedRoute>} />
+            <Route path="/search/:query" element={<ProtectedRoute><SearchPage /></ProtectedRoute>} />
           </Routes>
         </BrowserRouter>
       </Background>
