@@ -6,6 +6,10 @@ export const RightSideNavBar = styled.div`
     align-items: center;
 `
 
+export const TitleName = styled.span`
+    text-transform: capitalize;
+`
+
 export const ImageProfile = styled.img`
     width: 43px;
     border-radius: 50px;
