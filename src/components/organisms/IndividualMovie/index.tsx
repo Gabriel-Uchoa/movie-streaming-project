@@ -28,11 +28,27 @@ const IndividualMovie: React.FC = () => {
     const handleClickAddFavorite = async () => {
         if (id) {
             if (isMovieFavorite) {
-                await deleteMovieFavorite(id, user_info.personal_info.id);
-                setIsMovieFavorite(false);
+                await deleteMovieFavorite(id, user_info.personal_info.id)
+                    .then(function (result) {
+                        if (result) {
+                            setIsMovieFavorite(false);
+                        } else {
+                            alert("Não foi possivel desfavoritar!")
+
+                        }
+                    })
+                    .catch(function (error) {
+                        alert("Erro 500")
+                    });
+
             } else {
-                await postMoviesFavorites({ userId: user_info.personal_info.id, movieID: id });
-                setIsMovieFavorite(true);
+                await postMoviesFavorites({ userId: user_info.personal_info.id, movieID: id })
+                    .then(function (response) {
+                        setIsMovieFavorite(true);
+                    })
+                    .catch(function (error) {
+                        alert("Erro 500")
+                    });
             }
         }
     };
