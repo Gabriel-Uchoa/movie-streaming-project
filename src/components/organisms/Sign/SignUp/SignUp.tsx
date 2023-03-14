@@ -49,9 +49,11 @@ const SignUp = () => {
                 password: values.password,
                 phone: values.phone,
                 picture: values.picture,
+            }).then(function (response) {
+                alert("Usuário cadastrado com sucesso");
+            }).catch(function (error) {
+                alert("Erro 500, tente novamente mais tarde.");
             });
-            alert("Usuário cadastro com sucesso");
-            navigate("/");
         },
     });
 
