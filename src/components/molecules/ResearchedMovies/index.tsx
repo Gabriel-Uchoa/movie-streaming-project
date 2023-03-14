@@ -10,7 +10,7 @@ import MovieCard from "../MovieCard"
 const ResearchedMovies: React.FC<{query: string}> = (props) => {
     const { query } = props
     const [researchedMovies, setresearchedMovies] = useState<iSearchMovies[]>([])
-    const [finalResearchedMovies, setFinalResearchedMovies] = useState<iMovieDetails[]>([])
+    const adaptedResearchedMovies = useResearchedMovies(researchedMovies)
 
     useEffect(() => {
         const getResearchedMovies = async () => {
@@ -22,15 +22,15 @@ const ResearchedMovies: React.FC<{query: string}> = (props) => {
         getResearchedMovies()
     }, [query])
     
-    setFinalResearchedMovies(useResearchedMovies(researchedMovies))
+    console.log(adaptedResearchedMovies)
 
     return (
         <>
-      {finalResearchedMovies.length === 0 ? (
+      {adaptedResearchedMovies.length === 0 ? (
         <Spinner />
       ) : (
         <MainMoviePage>
-          {finalResearchedMovies.map((movie: iMovieDetails, index) => (
+          {adaptedResearchedMovies.map((movie: iMovieDetails, index) => (
             <LinkStyle key={index} to={`/movie/${movie.id}`}>
               <MovieCard genres={movie.genres} poster={movie.poster_path} title={movie.title} runtime={movie.runtime} />
             </LinkStyle>
