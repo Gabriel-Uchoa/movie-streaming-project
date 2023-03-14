@@ -15,7 +15,6 @@ const FavoritesMovies = () => {
             </WithoutMovie>
         )
     }
-    console.log(movies_favorites)
     const [firstMovie, ...remainingMovies] = movies_favorites
     return (
         <GeralDiv>
