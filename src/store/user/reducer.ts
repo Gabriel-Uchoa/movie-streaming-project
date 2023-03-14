@@ -8,7 +8,7 @@ const USER_DATA_INITIAL_STATE:iDataUser = {
         picture: '',
         id: 0,
     },
-    logged: false,
+    logged: true,
 }
 
 const userReducer = (state = USER_DATA_INITIAL_STATE, action: iAction) => {

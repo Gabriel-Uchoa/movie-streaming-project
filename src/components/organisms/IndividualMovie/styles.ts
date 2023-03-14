@@ -33,6 +33,10 @@ export const ContainsDivTrailers = styled.div`
 export const DivTrailers = styled.div`
     display: flex;
     gap: 20px;
+    @media screen and (max-width: 1300px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    }
 `
 
 export const TrailersTitle = styled.h4`

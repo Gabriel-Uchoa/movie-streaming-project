@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const DivMovieCard = styled.div`
     background: url(${props => props.datatype});
-    background-size: 100%;
+    background-size: cover;
     height: 360px;
     border-radius: 2px;
     display: flex;

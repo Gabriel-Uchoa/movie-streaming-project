@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 export const GeralDiv = styled.div`
     color: white;
-    margin: 20px 50px;
 `
 
 export const MainLastWatchMovies = styled.main`
@@ -11,16 +10,20 @@ export const MainLastWatchMovies = styled.main`
     grid-template-columns: 250px 250px 250px;
     justify-content: center;
     column-gap: 30px;
+
+    @media screen and (max-width: 860px) {
+        grid-template-columns: 250px;
+    }
 `
 
 export const TitleAndButton = styled.div`
     color: white;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin: 0 auto;
     margin-bottom: 40px;
-    width: 52vw;
+    width: 85vw;
 `
 
 export const LinkCentralMovieCardStyle = styled(Link)`
@@ -30,6 +33,10 @@ export const LinkCentralMovieCardStyle = styled(Link)`
     min-height: 360px;
     text-decoration: none;
     color: white;
+    @media screen and (max-width: 548px) {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
 `
 
 export const WithoutMovie = styled.div`
@@ -46,6 +53,10 @@ export const MainLastWatchMoviesAllView = styled.main`
     grid-template-columns: 250px 250px 250px 250px;
     justify-content: center;
     column-gap: 80px;
+    @media screen and (max-width: 1090px) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, .1fr));
+    padding: 10px 0;
+    }
 `
 
 export const TitleAndButtonAllView = styled.div`

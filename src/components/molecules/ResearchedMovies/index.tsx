@@ -23,8 +23,6 @@ const ResearchedMovies: React.FC<{ query: string }> = (props) => {
         getResearchedMovies()
     }, [query])
 
-    console.log(adaptedResearchedMovies)
-
     return (
         <>
             {adaptedResearchedMovies.length === 0 ? (

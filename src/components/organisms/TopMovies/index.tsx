@@ -1,26 +1,18 @@
-import { useState } from "react"
-import { useSelector } from "react-redux"
-import useLastWatchMovies from "../../../hooks/useLastWatchMovies"
-import { iState } from "../../../types/store.interface"
+import { useEffect, useState } from "react"
+import useTopMovies from "../../../hooks/useTopMovies"
+import getTopMovies from "../../../services/api/getTopMovies"
 import ViewMore from "../../atoms/ViewMore"
 import CentralMovieCard from "../../molecules/CentralMovieCard"
 import MovieCard from "../../molecules/MovieCard"
 import { LinkStyle } from "../AllMoviesPage/styles"
-import { GeralDiv, LinkCentralMovieCardStyle, MainLastWatchMovies, MainLastWatchMoviesAllView, TitleAndButton, TitleAndButtonAllView, WithoutMovie } from "./styles"
+import { GeralDiv, LinkCentralMovieCardStyle, MainLastWatchMovies, MainLastWatchMoviesAllView, TitleAndButton, TitleAndButtonAllView } from "../LastWatch/styles"
 
-const LastWatch = () => {
-    const lastWatchedMoviesList = useSelector((state: iState) => state.movies.lastWatchMoviesList)
+const TopMovies = () => {
     const [viewMore, setViewMore] = useState<boolean>(false)
-    const { noRepetitionMovies, firstMovie, firstFourNumbers } = useLastWatchMovies(lastWatchedMoviesList)
+    const { noRepetitionMovies, firstMovie, firstFourNumbers } = useTopMovies()
 
     const handleClick = () => {
         setViewMore(!viewMore)
-    }
-
-    if (!lastWatchedMoviesList.length) {
-        return <WithoutMovie>
-            <span>Você ainda não possui nenhum filme visto recentemente.</span>
-        </WithoutMovie>
     }
 
     return (
@@ -28,7 +20,7 @@ const LastWatch = () => {
             {!viewMore ?
                 <>
                     <TitleAndButton>
-                        <h1>Vistos Recentemente</h1>
+                        <h1>Top Filmes</h1>
                         <ViewMore onClick={handleClick} viewMore={viewMore} />
                     </TitleAndButton>
                     <MainLastWatchMovies>
@@ -41,7 +33,7 @@ const LastWatch = () => {
                 </> :
                 <>
                     <TitleAndButtonAllView>
-                        <h1>Vistos Recentemente</h1>
+                        <h1>Top Filmes</h1>
                         <ViewMore onClick={handleClick} viewMore={viewMore} />
                     </TitleAndButtonAllView>
                     <MainLastWatchMoviesAllView>
@@ -56,4 +48,4 @@ const LastWatch = () => {
     )
 }
 
-export default LastWatch
+export default TopMovies
