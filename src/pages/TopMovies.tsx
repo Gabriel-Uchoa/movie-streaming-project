@@ -1,6 +1,8 @@
+import TopMoviesTemplate from "../components/templates/TopMoviesTemplate"
+
 const TopMovies = () => {
     return (
-        <div></div>
+        <TopMoviesTemplate />
     )
 }
 

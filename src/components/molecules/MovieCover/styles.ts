@@ -9,8 +9,17 @@ export const DivCover = styled.div`
     align-items: flex-end;
     padding: 20px;
     border-radius: 2px;
+    background-repeat: no-repeat;
+    @media screen and (max-width: 550px) {
+        width: 400px;
+        height: 180px;
+    }
 `
 
 export const Image = styled.img`
     cursor: pointer;
+    @media screen and (max-width: 600px) {
+        width: 40px;
+        margin-bottom: 10px;
+    }
 `
