@@ -58,15 +58,23 @@ const NavBar = () => {
                     </NavItem>
                 </DivNavBar>
                 <DivNavBar>
-                    <SearchItem />
-                    {user_data.logged ? <ProfileArea /> : null}
+                    {user_data.logged ? <SearchItem /> : null}
+                    {user_data.logged ? <ProfileArea url={user_data.personal_info.picture} name={user_data.personal_info.name}/> : null}
                     {user_data.logged ? <NavigationItems item="Logout" link="/login" handleClick={logout} /> : null}
                     {user_data.logged ? null : <NavigationItems item="Login" link="/login" handleClick={logout} />}
                 </DivNavBar>
 
             </NavMenu>
             <Burger onClick={toggleMenu}>
-                <CloseIcon>X</CloseIcon>
+                <CloseIcon>
+                    {
+                        isOpen
+                            ?
+                            <img src="https://img.icons8.com/fluency-systems-filled/48/ffffff/delete-sign.png" />
+                            :
+                            <img src="https://img.icons8.com/ios-filled/50/ffffff/menu--v5.png" />
+                    }
+                </CloseIcon>
             </Burger>
         </NavBarStyle>
     )

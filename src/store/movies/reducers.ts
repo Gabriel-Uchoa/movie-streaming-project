@@ -25,12 +25,16 @@ const moviesReducer = (state = MOVIES_INICIAL_STATE, action: iAction) => {
                 lastWatchMoviesList: newLastWatchMoviesList
             }
         case "SET_MOVIES_FAVORITES":
-            const newMoviesFavorites = [...state.movies_favorites]
-            newMoviesFavorites.push(action.payload as never)
+            const movieToAdd = action.payload;
+            const isAlreadyFavorite = state.movies_favorites.some((movie: { id: number }): any => movie.id === movieToAdd.id);
+            if (isAlreadyFavorite) {
+                return state;
+            }
             return {
                 ...state,
-                movies_favorites: newMoviesFavorites
-            }
+                movies_favorites: [...state.movies_favorites, movieToAdd]
+            };
+
         default:
             return state
     }

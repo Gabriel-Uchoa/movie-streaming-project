@@ -12,9 +12,6 @@ export const NavigationItemStyle = styled(Link)`
 
       
   &:hover {
-        /* background-color: #fff;
-        color: #333;
-        transition: 300ms all; */
         border-bottom: 4px solid #FED530;
     }
 
@@ -23,9 +20,7 @@ export const NavigationItemStyle = styled(Link)`
         width: 100%;
         justify-content: center;
     &:hover {
-      background-color: #fff;
-      color: #333;
-      border: none;
+      border-bottom: 4px solid #FED530;
     }
   }
 `

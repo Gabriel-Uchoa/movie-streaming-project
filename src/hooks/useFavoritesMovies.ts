@@ -16,7 +16,6 @@ const useFavoritesMovies = (userID: string | number) => {
 
     useEffect(() => {
         if (movies_favorites.length) {
-            console.log(movies_favorites)
             return;
         }
         const fetchFavorites = async () => {
@@ -24,7 +23,6 @@ const useFavoritesMovies = (userID: string | number) => {
             favorites.forEach((movie: apiMoviesFavorites) => {
                 getMoviesDetails(movie.movieID).then(
                     movieDetailed => {
-                        console.log(movieDetailed)
                         store.dispatch(
                             setMoviesFavorites(movieDetailed)
                         );

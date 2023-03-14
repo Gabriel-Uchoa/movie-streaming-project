@@ -1,5 +1,4 @@
 import { iMovieDetails } from "./movieDetails.interface"
-import { iFavoriteMovies } from "./movieFavorite.interface"
 import { User } from "./user.interface"
 
 export interface iAction {
@@ -16,5 +15,4 @@ export interface iState {
 export interface iDataUser {
     personal_info: User,
     logged: boolean
-    movies_favorites: Array<number>
 }
