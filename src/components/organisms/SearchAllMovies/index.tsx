@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import ResearchedMovies from "../../molecules/ResearchedMovies"
-import { GeralDiv } from "./styles"
+import { Title } from "./styles"
 
 const SearchAllMovies = () => {
     const { query } = useParams()
@@ -10,10 +10,10 @@ const SearchAllMovies = () => {
     }
 
     return (
-        <GeralDiv>
-            <h1>Exibindo resultados para "{query}"</h1>
+        <div>
+            <Title>Exibindo resultados para "{query}"</Title>
             <ResearchedMovies query={query} />
-        </GeralDiv>
+        </div>
     )
 }
 

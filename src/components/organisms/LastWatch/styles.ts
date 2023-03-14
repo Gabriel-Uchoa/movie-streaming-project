@@ -20,7 +20,7 @@ export const TitleAndButton = styled.div`
     align-items: center;
     margin: 0 auto;
     margin-bottom: 40px;
-    width: 800px;
+    width: 52vw;
 `
 
 export const LinkCentralMovieCardStyle = styled(Link)`
@@ -39,4 +39,21 @@ export const WithoutMovie = styled.div`
     justify-content: center;
     align-items: center;
     font-size: large;
+`
+
+export const MainLastWatchMoviesAllView = styled.main`
+    display: grid;
+    grid-template-columns: 250px 250px 250px 250px;
+    justify-content: center;
+    column-gap: 80px;
+`
+
+export const TitleAndButtonAllView = styled.div`
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    width: 80vw;
 `

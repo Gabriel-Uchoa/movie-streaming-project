@@ -16,9 +16,15 @@ const SearchItem: React.FC = () => {
       history(`/search/${query}`)
     }
 
+    const handleKeyUp = (evt: React.KeyboardEvent<HTMLInputElement>) => {
+      if (evt.key === 'Enter') {
+        history(`/search/${query}`)
+      }
+    }
+
     return (
       <RightSideNavBar>
-        <SearchInput type="text" value={query} onChange={handleChange} />
+        <SearchInput type="text" value={query} onChange={handleChange} onKeyUp={handleKeyUp} />
         <ImageSearch src={searchImage} alt="símbolo de pesquisa" onClick={handleClick} />
       </RightSideNavBar>
     )
