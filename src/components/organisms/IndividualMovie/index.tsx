@@ -34,10 +34,10 @@ const IndividualMovie: React.FC = () => {
 
     useEffect(() => {
         if (id) {
-            setIsMovieFavorite(movies_favorites.includes(id) ? true : false);
+            const isFavorite = movies_favorites.find((movie: { id: number; }) => movie.id === Number(id));
+            setIsMovieFavorite(!!isFavorite);
         }
     }, [movies_favorites, id]);
-
 
     if (!selectedMovie) {
         return null;

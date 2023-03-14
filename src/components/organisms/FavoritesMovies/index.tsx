@@ -11,7 +11,7 @@ const FavoritesMovies = () => {
     if (!movies_favorites.length) {
         return (
             <WithoutMovie>
-                <span>Você ainda não possui nenhum filme visto recentemente.</span>
+                <span>Você ainda não adicinou nenhum filme aos favoritos.</span>
             </WithoutMovie>
         )
     }

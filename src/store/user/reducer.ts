@@ -1,10 +1,9 @@
 import { iAction, iDataUser } from "../../types/store.interface"
 
-const USER_DATA_INITIAL_STATE = {
+const USER_DATA_INITIAL_STATE:iDataUser = {
     personal_info: {
         name: '',
         email: '',
-        password: '',
         phone: '',
         picture: '',
         id: 0,
