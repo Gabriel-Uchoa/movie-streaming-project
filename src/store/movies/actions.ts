@@ -13,3 +13,10 @@ export const setLastWatchMoviesAction = (moviesList: iMovieDetails) => {
         payload: moviesList
     }
 }
+
+export const setMoviesFavorites = (moviesList: iMovieDetails) => {
+    return {
+        type: "SET_MOVIES_FAVORITES",
+        payload: moviesList
+    }
+}

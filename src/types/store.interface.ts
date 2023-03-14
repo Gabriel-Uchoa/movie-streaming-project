@@ -16,5 +16,5 @@ export interface iState {
 export interface iDataUser {
     personal_info: User,
     logged: boolean
-    movies_favorites: Array<iFavoriteMovies>
+    movies_favorites: Array<number>
 }

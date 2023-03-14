@@ -1,6 +1,6 @@
 import { iAction, iDataUser } from "../../types/store.interface"
 
-const USER_DATA_INITIAL_STATE: iDataUser = {
+const USER_DATA_INITIAL_STATE = {
     personal_info: {
         name: '',
         email: '',
@@ -10,7 +10,6 @@ const USER_DATA_INITIAL_STATE: iDataUser = {
         id: 0,
     },
     logged: false,
-    movies_favorites: []
 }
 
 const userReducer = (state = USER_DATA_INITIAL_STATE, action: iAction) => {
@@ -27,13 +26,7 @@ const userReducer = (state = USER_DATA_INITIAL_STATE, action: iAction) => {
                 personal_info: '',
                 logged: false
             }
-        case "SET_MOVIES_FAVORITES":
-            if (!state.movies_favorites.includes(action.payload.movieID)) {
-                return {
-                    ...state,
-                    movies_favorites: [...state.movies_favorites, action.payload.movieID],
-                };
-            }
+
         default:
             return state
     }
