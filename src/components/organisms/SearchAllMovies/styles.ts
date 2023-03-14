@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const GeralDiv = styled.div`
+export const Title = styled.h1`
     color: white;
-    padding: 30px;
+    padding: 35px;
 `
