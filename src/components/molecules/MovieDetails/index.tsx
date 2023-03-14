@@ -15,9 +15,9 @@ const MovieDetails: React.FC = () => {
 
     return (
         <>
-            <span>Genre: {separateGenres().join(', ')}</span>
-            <span>Duration: {selectedMovie?.runtime}</span>
-            <span>Rating: {selectedMovie?.vote_average}</span>
+            <span>Gênero: {separateGenres().join(', ')}</span>
+            <span>Duração: {selectedMovie?.runtime}</span>
+            <span>Avaliação: {selectedMovie?.vote_average}</span>
         </>
     )
 }
