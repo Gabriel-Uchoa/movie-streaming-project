@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import useSelectedMovie from "../../../hooks/useSelectedMovie";
 import useTrailers from "../../../hooks/useTrailers";
+import deleteMovieFavorite from "../../../services/api/deleteMovieFavorite";
 import postMoviesFavorites from "../../../services/api/postMoviesFavorites";
 import { iDataUser } from "../../../types/store.interface";
 import FavoriteButton from "../../atoms/FavoriteButton";
@@ -25,11 +26,15 @@ const IndividualMovie: React.FC = () => {
     const { id } = useParams();
 
     const handleClickAddFavorite = async () => {
-        if (isMovieFavorite) {
-            return;
+        if (id) {
+            if (isMovieFavorite) {
+                await deleteMovieFavorite(id, user_info.personal_info.id);
+                setIsMovieFavorite(false);
+            } else {
+                await postMoviesFavorites({ userId: user_info.personal_info.id, movieID: id });
+                setIsMovieFavorite(true);
+            }
         }
-        await postMoviesFavorites({ userId: user_info.personal_info.id, movieID: id });
-        setIsMovieFavorite(true);
     };
 
     useEffect(() => {
