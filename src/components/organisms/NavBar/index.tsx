@@ -9,10 +9,19 @@ import { useSelector } from "react-redux"
 import store from "../../../store"
 import { useLogout } from "../../../store/user/action"
 
+interface iDataLocal {
+    id: number,
+    name: string,
+    picture: string
+}
+
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [width, setWidth] = useState(0)
 
+    const DataUserLocalStorage = localStorage.getItem("Watchflix_GG")
+    let DataUserString:iDataLocal = JSON.parse(DataUserLocalStorage)
+    
     const user_data: iDataUser = useSelector((state: any) => state.user_info)
 
     useLayoutEffect(() => {
@@ -29,6 +38,7 @@ const NavBar = () => {
 
     const logout = useCallback(() => {
         store.dispatch(useLogout(false))
+        localStorage.clear()
     }, []);
 
 
@@ -37,6 +47,7 @@ const NavBar = () => {
             setIsOpen(false);
         }
     }, [width]);
+
     return (
         <NavBarStyle>
             <TitleApp />
@@ -59,7 +70,7 @@ const NavBar = () => {
                 </DivNavBar>
                 <DivNavBar>
                     {user_data.logged ? <SearchItem /> : null}
-                    {user_data.logged ? <ProfileArea url={user_data.personal_info.picture} name={user_data.personal_info.name}/> : null}
+                    {user_data.logged ? <ProfileArea url={DataUserString.picture} name={DataUserString.name} /> : null}
                     {user_data.logged ? <NavigationItems item="Logout" link="/login" handleClick={logout} /> : null}
                     {user_data.logged ? null : <NavigationItems item="Login" link="/login" handleClick={logout} />}
                 </DivNavBar>
@@ -70,9 +81,9 @@ const NavBar = () => {
                     {
                         isOpen
                             ?
-                            <img src="https://img.icons8.com/fluency-systems-filled/48/ffffff/delete-sign.png" />
+                            <img width={30} src="https://img.icons8.com/fluency-systems-filled/48/ffffff/delete-sign.png" />
                             :
-                            <img src="https://img.icons8.com/ios-filled/50/ffffff/menu--v5.png" />
+                            <img width={30} src="https://img.icons8.com/ios-filled/50/ffffff/menu--v5.png" />
                     }
                 </CloseIcon>
             </Burger>

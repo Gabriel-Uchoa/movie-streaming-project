@@ -53,7 +53,6 @@ export const Burger = styled.div`
         display: block;
         cursor: pointer;
         position: absolute;
-        top: 22px;
         right: 20px;
         font-size: 1.8rem;
         color: #fff;

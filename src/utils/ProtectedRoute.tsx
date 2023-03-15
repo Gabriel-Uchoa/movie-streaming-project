@@ -4,8 +4,9 @@ import Sign from "../pages/Sign";
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { logged } = useSelector((state: any) => state.user_info);
+  const authLocalStorage = localStorage.getItem("Watchflix_GG")
 
-  return logged ? <Fragment>{children}</Fragment> : <Sign />;
+  return logged && authLocalStorage ? <Fragment>{children}</Fragment> : <Sign />;
 };
 
 export default ProtectedRoute;

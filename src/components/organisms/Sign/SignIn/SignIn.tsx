@@ -31,6 +31,7 @@ const SignIn = () => {
             );
             if (authenticatedUser) {
                 const { email, id, name, phone, picture } = authenticatedUser;
+                localStorage.setItem("Watchflix_GG", JSON.stringify(id))
                 store.dispatch(setDataUserLogged({ email, id, name, phone, picture }));
                 navigate('/')
             } else {
@@ -38,6 +39,20 @@ const SignIn = () => {
                     "Email ou senha incorreto, lembre-se de se cadastrar no nosso sistema."
                 );
             }
+
+            /* 
+             //MOCK de login caso api esteja inacessível
+             if (true) {
+                     const id = 1;
+                     const email = "email.teste@gmail.com"
+                     const name = "Teste"
+                     const phone = "0123456789"
+                     const picture = "https://img.icons8.com/external-icongeek26-linear-colour-icongeek26/64/null/external-tester-electrician-icongeek26-linear-colour-icongeek26.png"
+                     localStorage.setItem("Watchflix_GG", JSON.stringify({name, id, picture}))
+                     store.dispatch(setDataUserLogged({ email, id, name, phone, picture }));
+                     navigate('/')
+                 }  */
+
         },
     });
 
