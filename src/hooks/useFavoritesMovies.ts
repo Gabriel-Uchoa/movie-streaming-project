@@ -19,7 +19,6 @@ const useFavoritesMovies = async (userID: string | number, movies: any) => {
     }
     const fetchFavorites = async () => {
         const favorites = await getMoviesFavorites(userID);
-        console.log("favorites", favorites)
         /*
             //Mock dos filmes favoritos caso api esteja inacessível  
             const mock = [
