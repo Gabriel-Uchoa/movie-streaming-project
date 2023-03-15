@@ -1,4 +1,3 @@
-import { iSearchMovies } from "../../types/searchMovies.interface"
 import { iTopMovies } from "../../types/topMovies.interface"
 
 const adaptGetTopMovies = (topMovies: any) => {
