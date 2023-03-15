@@ -10,7 +10,7 @@ interface User {
 
 export default async function postUsersApi(Data: User) {
     try {
-        const response = await axios.post('https://apigenerator.dronahq.com/api/ZvQfn1rX/users', Data, { timeout: 20000 });
+        const response = await axios.post('https://apigenerator.dronahq.com/api/ZvQfn1rX/users', Data);
         return response.data;
     } catch (error) {
         console.error(error);
