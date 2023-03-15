@@ -16,7 +16,7 @@ import { ContainsDivTrailers, DivDetailsMovie, DivTextDetails, DivTrailers, Main
 
 
 const IndividualMovie: React.FC = () => {
-    const user_info: iDataUser = useSelector((state: any) => state.user_info);
+    const user_data: iDataUser = useSelector((state: any) => state.user_info);
     const { movies_favorites } = useSelector((state: any) => state.movies);
 
     const [isMovieFavorite, setIsMovieFavorite] = useState(false);
@@ -28,7 +28,7 @@ const IndividualMovie: React.FC = () => {
     const handleClickAddFavorite = async () => {
         if (id) {
             if (isMovieFavorite) {
-                await deleteMovieFavorite(id, user_info.personal_info.id)
+                await deleteMovieFavorite(id, user_data.personal_info.id)
                     .then(function (result) {
                         if (result) {
                             setIsMovieFavorite(false);
@@ -42,7 +42,7 @@ const IndividualMovie: React.FC = () => {
                     });
 
             } else {
-                await postMoviesFavorites({ userId: user_info.personal_info.id, movieID: id }).then(function (response) {
+                await postMoviesFavorites({ userId: user_data.personal_info.id, movieID: id }).then(function (response) {
                     setIsMovieFavorite(true);
                 }).catch(function (error) {
                     alert("Erro 500")
