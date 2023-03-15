@@ -7,8 +7,6 @@ const MOVIES_INICIAL_STATE = {
 }
 
 const moviesReducer = (state = MOVIES_INICIAL_STATE, action: iAction) => {
-    console.log({ state: state.lastWatchMoviesList })
-
     switch (action.type) {
         case "ADD_MOVIES_TO_LIST":
             const newMoviesList = [...state.moviesList]
