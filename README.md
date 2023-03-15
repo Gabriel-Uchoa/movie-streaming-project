@@ -22,6 +22,7 @@ Projeto desenvolvido em React + TypeScript, em equipe, com o objetivo de colocar
     - Utilização de React Redux;
     - Componentização e responsividade dos elementos visuais;
     - Validação dos campos de formulário;
+    - Reaproveitamento de código/ componentes;
     - Cumprimento dos Requisitos de Software;
 
 ## 🚀 Como executar
