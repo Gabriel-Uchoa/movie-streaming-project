@@ -81,9 +81,9 @@ const NavBar = () => {
                     {
                         isOpen
                             ?
-                            <img src="https://img.icons8.com/fluency-systems-filled/48/ffffff/delete-sign.png" />
+                            <img width={30} src="https://img.icons8.com/fluency-systems-filled/48/ffffff/delete-sign.png" />
                             :
-                            <img src="https://img.icons8.com/ios-filled/50/ffffff/menu--v5.png" />
+                            <img width={30} src="https://img.icons8.com/ios-filled/50/ffffff/menu--v5.png" />
                     }
                 </CloseIcon>
             </Burger>
