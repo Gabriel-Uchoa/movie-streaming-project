@@ -8,23 +8,16 @@ import { iDataUser } from "../../../types/store.interface"
 import { useSelector } from "react-redux"
 import store from "../../../store"
 import { useLogout } from "../../../store/user/action"
-
-interface iDataLocal {
-    id: number,
-    name: string,
-    picture: string
-}
+import usePersistLogin from "../../../hooks/usePersistLogin"
 
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [width, setWidth] = useState(0)
-
-    const DataUserLocalStorage = localStorage.getItem("Watchflix_GG")
-    let DataUserString:iDataLocal = JSON.parse(DataUserLocalStorage)
-    
     const user_data: iDataUser = useSelector((state: any) => state.user_info)
 
     useLayoutEffect(() => {
+        usePersistLogin()
+
         function updateWidth() {
             setWidth(document.body.clientWidth);
         }
@@ -70,7 +63,7 @@ const NavBar = () => {
                 </DivNavBar>
                 <DivNavBar>
                     {user_data.logged ? <SearchItem /> : null}
-                    {user_data.logged ? <ProfileArea url={DataUserString.picture} name={DataUserString.name} /> : null}
+                    {user_data.logged ? <ProfileArea url={user_data.personal_info.picture} name={user_data.personal_info.name} /> : null}
                     {user_data.logged ? <NavigationItems item="Logout" link="/login" handleClick={logout} /> : null}
                     {user_data.logged ? null : <NavigationItems item="Login" link="/login" handleClick={logout} />}
                 </DivNavBar>

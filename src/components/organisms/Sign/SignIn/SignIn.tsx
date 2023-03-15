@@ -31,7 +31,7 @@ const SignIn = () => {
             );
             if (authenticatedUser) {
                 const { email, id, name, phone, picture } = authenticatedUser;
-                localStorage.setItem("Watchflix_GG", JSON.stringify(id))
+                localStorage.setItem("Watchflix_GG", JSON.stringify({name, id, picture}))
                 store.dispatch(setDataUserLogged({ email, id, name, phone, picture }));
                 navigate('/')
             } else {
