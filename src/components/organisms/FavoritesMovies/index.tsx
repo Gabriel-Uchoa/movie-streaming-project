@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useSelector } from "react-redux"
+import useLastWatchMovies from "../../../hooks/useLastWatchMovies"
 import ViewMore from "../../atoms/ViewMore"
-import { TextViewMore } from "../../atoms/ViewMore/styles"
 import CentralMovieCard from "../../molecules/CentralMovieCard"
 import MovieCard from "../../molecules/MovieCard"
 import { LinkStyle } from "../AllMoviesPage/styles"
@@ -10,10 +10,10 @@ import { GeralDiv, LinkCentralMovieCardStyle, MainLastWatchMovies, MainLastWatch
 const FavoritesMovies = () => {
     const { movies_favorites } = useSelector((state: any) => state.movies);
     const [viewMore, setViewMore] = useState<boolean>(false)
+    const { noRepetitionMovies, firstMovie, firstFourNumbers } = useLastWatchMovies(movies_favorites)
 
     const handleClick = () => {
         setViewMore(!viewMore)
-        console.log(viewMore)
     }
 
     if (!movies_favorites.length) {
@@ -24,15 +24,12 @@ const FavoritesMovies = () => {
         )
     }
 
-    const [firstMovie, ...remainingMovies] = movies_favorites
-    const firstFourNumbers = [...remainingMovies.slice(0, 4).map((movie: any) => movie)]
-
     return (
         <GeralDiv>
             {!viewMore ?
                 <>
                     <TitleAndButton>
-                        <h1>Vistos Recentemente</h1>
+                        <h1>Favoritos</h1>
                         <ViewMore onClick={handleClick} viewMore={viewMore} />
                     </TitleAndButton>
                     <MainLastWatchMovies>
@@ -45,11 +42,11 @@ const FavoritesMovies = () => {
                 </> :
                 <>
                     <TitleAndButtonAllView>
-                        <h1>Vistos Recentemente</h1>
+                        <h1>Favoritos</h1>
                         <ViewMore onClick={handleClick} viewMore={viewMore} />
                     </TitleAndButtonAllView>
                     <MainLastWatchMoviesAllView>
-                        {remainingMovies.map((movie: any, index: any) => {
+                        {noRepetitionMovies.map((movie, index) => {
                             return <LinkStyle key={index} to={`/movie/${movie.id}`}> <MovieCard genres={movie.genres} poster={movie.poster_path} title={movie.title} runtime={movie.runtime} /> </LinkStyle>
                         })}
                     </MainLastWatchMoviesAllView>
@@ -57,6 +54,7 @@ const FavoritesMovies = () => {
             }
 
         </GeralDiv>
+
     )
 }
 

@@ -11,42 +11,41 @@ interface apiMoviesFavorites {
     id?: number
 }
 
-const useFavoritesMovies = (userID: string | number) => {
-    const { movies_favorites } = useSelector((state: any) => state.movies);
+const useFavoritesMovies = async (userID: string | number, movies: any) => {
+    if (movies.length) {
+        return;
+    }
+    const fetchFavorites = async () => {
+        const favorites = await getMoviesFavorites(userID);
+        console.log("favorites", favorites)
+        /*
+            //Mock dos filmes favoritos caso api esteja inacessível  
+            const mock = [
+                { movieID: 1077280 },
+                { movieID: 315162 },
+                { movieID: 934433 },
+                { movieID: 631842 },
+                { movieID: 536554 },
+                { movieID: 76600 },
+                { movieID: 934433 },
+                { movieID: 785084 },
+            ]
+       
+            const favorites = mock 
+        */
+        favorites.forEach((movie: apiMoviesFavorites) => {
+            getMoviesDetails(movie.movieID).then(
+                movieDetailed => {
+                    store.dispatch(
+                        setMoviesFavorites(movieDetailed)
+                    );
+                }
+            )
+        });
+    };
 
-    useEffect(() => {
-        if (movies_favorites.length) {
-            return;
-        }
-        const fetchFavorites = async () => {
-            const favorites = await getMoviesFavorites(userID);
-            /*
-                //Mock dos filmes favoritos caso api esteja inacessível  
-                const mock = [
-                    { movieID: 1077280 },
-                    { movieID: 315162 },
-                    { movieID: 934433 },
-                    { movieID: 631842 },
-                    { movieID: 536554 },
-                    { movieID: 76600 },
-                    { movieID: 934433 },
-                    { movieID: 785084 },
-                ]
-           
-                const favorites = mock 
-            */
-            favorites.forEach((movie: apiMoviesFavorites) => {
-                getMoviesDetails(movie.movieID).then(
-                    movieDetailed => {
-                        store.dispatch(
-                            setMoviesFavorites(movieDetailed)
-                        );
-                    }
-                )
-            });
-        };
-        fetchFavorites();
-    }, []);
+   await fetchFavorites();
+
 };
 
 export default useFavoritesMovies;

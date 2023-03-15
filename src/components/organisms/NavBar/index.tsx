@@ -17,7 +17,6 @@ const NavBar = () => {
 
     useLayoutEffect(() => {
         usePersistLogin()
-
         function updateWidth() {
             setWidth(document.body.clientWidth);
         }
