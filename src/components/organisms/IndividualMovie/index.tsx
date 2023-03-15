@@ -42,13 +42,11 @@ const IndividualMovie: React.FC = () => {
                     });
 
             } else {
-                await postMoviesFavorites({ userId: user_info.personal_info.id, movieID: id })
-                    .then(function (response) {
-                        setIsMovieFavorite(true);
-                    })
-                    .catch(function (error) {
-                        alert("Erro 500")
-                    });
+                await postMoviesFavorites({ userId: user_info.personal_info.id, movieID: id }).then(function (response) {
+                    setIsMovieFavorite(true);
+                }).catch(function (error) {
+                    alert("Erro 500")
+                });
             }
         }
     };
