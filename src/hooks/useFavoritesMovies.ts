@@ -12,7 +12,9 @@ interface apiMoviesFavorites {
 }
 
 const useFavoritesMovies = async (userID: string | number, movies: any) => {
-    if (movies.length) {
+    const { movies_favorites } = useSelector((state: any) => state.movies);
+
+    if (movies_favorites.length) {
         return;
     }
     const fetchFavorites = async () => {
@@ -44,7 +46,7 @@ const useFavoritesMovies = async (userID: string | number, movies: any) => {
         });
     };
 
-   await fetchFavorites();
+    await fetchFavorites();
 
 };
 
