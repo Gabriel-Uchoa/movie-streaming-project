@@ -5,7 +5,7 @@ export interface ApiResponse {
 }
 
 const getUsersApi = async (): Promise<ApiResponse> => {
-    const response = await axios.get("https://apigenerator.dronahq.com/api/ZvQfn1rX/users")
+    const response = await axios.get("https://api-generator.retool.com/ORSLKk/users")
     return ({ users: response.data })
 }
 

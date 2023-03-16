@@ -40,6 +40,7 @@ export const StyleForm = styled.form`
 export const DualInput = styled.div`
   display: flex;
   gap: 20px;
+  width: 100%;
 
   @media screen and (max-width: 480px) {
     flex-direction: column;
