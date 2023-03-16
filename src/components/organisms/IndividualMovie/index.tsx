@@ -42,7 +42,7 @@ const IndividualMovie: React.FC = () => {
                     });
 
             } else {
-                await postMoviesFavorites({ userId: user_data.personal_info.id, movieID: id }).then(function (response) {
+                await postMoviesFavorites({ userId: user_data.personal_info.id, movieId: id }).then(function (response) {
                     setIsMovieFavorite(true);
                 }).catch(function (error) {
                     alert("Erro 500")

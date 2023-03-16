@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const ErrorMensage = styled.span`
     color: #ed3548;
@@ -25,6 +25,7 @@ export const FormFieldStyle = styled.div`
         &:focus{
             outline: 1px solid black;
         }
+        flex-grow: 1;
     }
     &>label{
         margin: 5px 0px;   
