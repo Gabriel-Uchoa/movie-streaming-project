@@ -27,7 +27,7 @@ const SignIn = () => {
         onSubmit: async (values) => {
             const { users } = await getUsersApi();
             const authenticatedUser = users.find(
-                ({ email, password }: User) => email === values.email && password === values.password
+                ({ email, password }: User) => email.toLocaleLowerCase() === values.email.toLocaleLowerCase() && password === values.password
             );
             if (authenticatedUser) {
                 const { email, id, name, phone, picture } = authenticatedUser;

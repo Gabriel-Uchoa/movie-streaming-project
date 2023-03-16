@@ -7,7 +7,7 @@ import { setMoviesFavorites } from "../store/movies/actions";
 
 interface apiMoviesFavorites {
     userId?: number,
-    movieID: number,
+    movieId: number,
     id?: number
 }
 
@@ -22,20 +22,20 @@ const useFavoritesMovies = async (userID: string | number, movies: any) => {
         /*
             //Mock dos filmes favoritos caso api esteja inacessível  
             const mock = [
-                { movieID: 1077280 },
-                { movieID: 315162 },
-                { movieID: 934433 },
-                { movieID: 631842 },
-                { movieID: 536554 },
-                { movieID: 76600 },
-                { movieID: 934433 },
-                { movieID: 785084 },
+                { movieId: 1077280 },
+                { movieId: 315162 },
+                { movieId: 934433 },
+                { movieId: 631842 },
+                { movieId: 536554 },
+                { movieId: 76600 },
+                { movieId: 934433 },
+                { movieId: 785084 },
             ]
        
             const favorites = mock 
         */
         favorites.forEach((movie: apiMoviesFavorites) => {
-            getMoviesDetails(movie.movieID).then(
+            getMoviesDetails(movie.movieId).then(
                 movieDetailed => {
                     store.dispatch(
                         setMoviesFavorites(movieDetailed)
