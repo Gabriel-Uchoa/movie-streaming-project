@@ -31,7 +31,7 @@ const SignIn = () => {
             );
             if (authenticatedUser) {
                 const { email, id, name, phone, picture } = authenticatedUser;
-                localStorage.setItem("Watchflix_GG", JSON.stringify({name, id, picture}))
+                localStorage.setItem("Watchflix_GG", JSON.stringify({ name, id, picture }))
                 store.dispatch(setDataUserLogged({ email, id, name, phone, picture }));
                 navigate('/')
             } else {
@@ -77,7 +77,7 @@ const SignIn = () => {
                     value={formik.values.password}
                     error={formik.errors.password}
                 />
-                <ButtonForm textContent="Log in" handleClick={formik.submitForm} />
+                <ButtonForm textContent="Log in" />
             </StyleForm>
         </div>
     );

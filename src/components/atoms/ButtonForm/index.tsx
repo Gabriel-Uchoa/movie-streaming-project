@@ -1,8 +1,8 @@
 import { StyleButton } from "./styles"
 
-const ButtonForm: React.FC<{ textContent: string, handleClick: React.MouseEventHandler<HTMLButtonElement> }> = (props) => {
+const ButtonForm: React.FC<{ textContent: string }> = (props) => {
     return (
-        <StyleButton type="submit" onClick={props.handleClick}>{props.textContent}</StyleButton>
+        <StyleButton type="submit">{props.textContent}</StyleButton>
     )
 }
 

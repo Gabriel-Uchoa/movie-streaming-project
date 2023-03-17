@@ -6,7 +6,7 @@ export const StyleFooter = styled.footer`
 	display: flex;
 	color: #ffffff;
 
-	@media screen and (max-width: 768px) {
+	@media screen and (max-width: 860px) {
 		flex-direction: column;
 	}
 `;
@@ -16,10 +16,10 @@ export const DescribeFooter = styled.section`
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	padding: 30px;
+	padding: 30px 60px;
 	gap: 20px;
 
-	@media screen and (min-width: 768px) {
+	@media screen and (min-width: 860px) {
 		max-width: 39vw;
 	}
 `;
@@ -28,7 +28,7 @@ export const TitleDescribe = styled.h1`
 	font-weight: 500;
 	font-size: 60px;
 	line-height: 88px;
-	@media (max-width: 768px) {
+	@media (max-width: 860px) {
 		font-size: 40px;
 		line-height: 56px;
 	}
@@ -86,7 +86,7 @@ export const NavFooter = styled.section`
 	justify-content: space-around;
 	gap: 20px;
 	padding: 30px 50px;
-	@media screen and (min-width: 768px) {
+	@media screen and (min-width: 860px) {
 		max-width: 61vw;
 	}
 `;
@@ -95,7 +95,7 @@ export const Row = styled.div`
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
 	grid-gap: 20px;
-	@media (max-width: 768px) {
+	@media (max-width: 860px) {
 		grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
 	}
 `;
@@ -132,7 +132,7 @@ export const Contact = styled.div`
 		align-items: center;
 	}
 
-	@media screen and (max-width: 768px) {
+	@media screen and (max-width: 860px) {
 		flex-direction: column;
 		align-items: flex-start;
 		gap: 12px;

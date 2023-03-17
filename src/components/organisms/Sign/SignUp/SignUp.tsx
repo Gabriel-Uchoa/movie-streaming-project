@@ -9,7 +9,6 @@ import FormField from "../../../molecules/FormField";
 import { DualInput, StyleForm } from "../styles";
 
 const SignUp = () => {
-    const [exist, setExiste] = useState(false);
     const navigate = useNavigate();
 
     const formik = useFormik({
@@ -31,29 +30,30 @@ const SignUp = () => {
             email: yup
                 .string()
                 .email("This email is invalid.")
-                .required("Is required")
-                .test("EmailInUse", "E-mail already registered", function () {
-                    EmailUsed(formik.values.email).then((resolve) => {
-                        setExiste(!resolve);
-                    });
-                    return exist;
-                }),
-
+                .required("Is required"),
             phone: yup.string().required("Is required"),
             picture: yup.string().url("This Url is Invalid").required("Is required"),
         }),
-        onSubmit: async (values) => {
-            await postUsersApi({
-                name: values.first_name.toLowerCase() + " " + values.last_name.toLowerCase(),
-                email: values.email.toLowerCase(),
-                password: values.password,
-                phone: values.phone,
-                picture: values.picture,
-            }).then(function (response) {
-                alert("Usuário cadastrado com sucesso");
-            }).catch(function (error) {
-                alert("Erro 500, tente novamente mais tarde.");
+        onSubmit: (values) => {
+            EmailUsed(formik.values.email).then(async (resolve) => {
+                if (!resolve) {
+                    await postUsersApi({
+                        name: values.first_name.toLowerCase() + " " + values.last_name.toLowerCase(),
+                        email: values.email.toLowerCase(),
+                        password: values.password,
+                        phone: values.phone,
+                        picture: values.picture,
+                    }).then(function (response) {
+                        alert("Usuário cadastrado com sucesso");
+                        navigate("/login")
+                    }).catch(function (error) {
+                        alert("Erro 500, tente novamente mais tarde.");
+                    });
+                } else {
+                    alert("Usuário já cadastrado")
+                }
             });
+
         },
     });
 
@@ -113,7 +113,7 @@ const SignUp = () => {
                     error={formik.errors.picture}
                 />
             </DualInput>
-            <ButtonForm textContent="Sign up" handleClick={formik.submitForm} />
+            <ButtonForm textContent="Sign up" />
         </StyleForm>
     );
 };
