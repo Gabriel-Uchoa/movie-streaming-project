@@ -5,7 +5,7 @@ import { setMoviesListAction } from "../../store/movies/actions"
 import { VITE_API_KEY } from "../../envs"
 import.meta.env.VITE_API_KEY
 
-const getMoviesDetails = async (movieId: number) => {
+const getAllMoviesDetails = async (movieId: number) => {
     const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${VITE_API_KEY}&language=pt-BR`)
 
     const adaptedResponse = adaptGetMoviesDetails(response.data)
@@ -15,4 +15,4 @@ const getMoviesDetails = async (movieId: number) => {
     return adaptedResponse
 }
 
-export default getMoviesDetails
+export default getAllMoviesDetails

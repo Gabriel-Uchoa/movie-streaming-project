@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import getMoviesDetails from "../services/api/getMoviesDetails";
+import getMoviesDetails from "../services/api/getAllMoviesDetails";
 import getMoviesFavorites from "../services/api/getMoviesFavorites";
 import store from "../store";
 import { setMoviesFavorites } from "../store/movies/actions";

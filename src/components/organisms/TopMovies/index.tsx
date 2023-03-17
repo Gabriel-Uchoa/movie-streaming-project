@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react"
-import useTopMovies from "../../../hooks/useTopMovies"
-import getTopMovies from "../../../services/api/getTopMovies"
+import { useState } from "react"
+import { useSelector } from "react-redux"
+import { iState } from "../../../types/store.interface"
+import Spinner from "../../atoms/Spinner"
 import ViewMore from "../../atoms/ViewMore"
 import CentralMovieCard from "../../molecules/CentralMovieCard"
 import MovieCard from "../../molecules/MovieCard"
@@ -9,10 +10,17 @@ import { GeralDiv, LinkCentralMovieCardStyle, MainLastWatchMovies, MainLastWatch
 
 const TopMovies = () => {
     const [viewMore, setViewMore] = useState<boolean>(false)
-    const { noRepetitionMovies, firstMovie, firstFourNumbers } = useTopMovies()
+    const topMoviesList = useSelector((state: iState) => state.movies.topMoviesList);
+    const [firstMovie, ...remainingMovies] = topMoviesList
+    console.log(top)
+    const firstFourNumbers = [...remainingMovies.slice(0, 4).map((movie) => movie)]
 
     const handleClick = () => {
         setViewMore(!viewMore)
+    }
+
+    if (!topMoviesList.length) {
+        return <GeralDiv><Spinner /></GeralDiv>
     }
 
     return (
@@ -37,7 +45,7 @@ const TopMovies = () => {
                         <ViewMore onClick={handleClick} viewMore={viewMore} />
                     </TitleAndButtonAllView>
                     <MainLastWatchMoviesAllView>
-                        {noRepetitionMovies.map((movie, index) => {
+                        {topMoviesList.map((movie, index) => {
                             return <LinkStyle key={index} to={`/movie/${movie.id}`}> <MovieCard genres={movie.genres} poster={movie.poster_path} title={movie.title} runtime={movie.runtime} /> </LinkStyle>
                         })}
                     </MainLastWatchMoviesAllView>

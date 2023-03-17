@@ -7,13 +7,18 @@ import { iState } from "../types/store.interface"
 
 const useSelectedMovie = () => {
     const moviesList = useSelector((state: iState) => state.movies.moviesList)
+    const topMoviesList = useSelector((state: iState) => state.movies.topMoviesList)
     const [selectedMovie, setSelectedMovie] = useState<iMovieDetails>()
     const { id } = useParams()  
 
     useEffect (() => {
-        const movie = moviesList.find((movie) => movie.id === Number(id))
-        setSelectedMovie(movie)
-    }, [moviesList, id])
+        if (moviesList.length) {
+            const movie = moviesList.find((movie) => movie.id === Number(id))
+            setSelectedMovie(movie)
+        }
+        const movie = topMoviesList.find((movie) => movie.id === Number(id))
+            setSelectedMovie(movie)
+    }, [moviesList, topMoviesList, id])
 
     return selectedMovie
 }
