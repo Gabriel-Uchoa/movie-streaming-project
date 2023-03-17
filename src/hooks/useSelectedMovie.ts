@@ -12,13 +12,13 @@ const useSelectedMovie = () => {
     const { id } = useParams()  
 
     useEffect (() => {
-        if (moviesList.length) {
-            const movie = moviesList.find((movie) => movie.id === Number(id))
-            setSelectedMovie(movie)
-        }
-        const movie = topMoviesList.find((movie) => movie.id === Number(id))
-            setSelectedMovie(movie)
-    }, [moviesList, topMoviesList, id])
+            const mainMovie = moviesList.find((movie) => movie.id === Number(id))
+            setSelectedMovie(mainMovie)
+            if (!mainMovie) {
+                const topMovie = topMoviesList.find((movie) => movie.id === Number(id))
+                setSelectedMovie(topMovie)
+            }
+    }, [id])
 
     return selectedMovie
 }
