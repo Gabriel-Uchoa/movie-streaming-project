@@ -3,6 +3,7 @@ import { iAction } from "../../types/store.interface"
 const MOVIES_INICIAL_STATE = {
     moviesList: [],
     lastWatchMoviesList: [],
+    topMoviesList: [],
     movies_favorites: []
 }
 
@@ -21,6 +22,14 @@ const moviesReducer = (state = MOVIES_INICIAL_STATE, action: iAction) => {
             return {
                 ...state,
                 lastWatchMoviesList: newLastWatchMoviesList
+            }
+        case "ADD_TOP_MOVIES_TO_LIST":
+            const newTopMoviesList = [...state.topMoviesList]
+            newTopMoviesList.push(action.payload as never)
+            console.log(newTopMoviesList)
+            return {
+                ...state,
+                topMoviesList: newTopMoviesList
             }
         case "SET_MOVIES_FAVORITES":
             const movieToAdd = action.payload;

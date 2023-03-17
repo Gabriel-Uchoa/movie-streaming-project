@@ -9,7 +9,8 @@ export interface iAction {
 export interface iState {
     movies: {
         moviesList: iMovieDetails[],
-        lastWatchMoviesList: iMovieDetails[]
+        lastWatchMoviesList: iMovieDetails[],
+        topMoviesList: iMovieDetails[]
     }
 }
 export interface iDataUser {

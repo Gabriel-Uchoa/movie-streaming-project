@@ -14,6 +14,13 @@ export const setLastWatchMoviesAction = (moviesList: iMovieDetails) => {
     }
 }
 
+export const setTopMoviesAction = (moviesList: iMovieDetails) => {
+    return {
+        type: "ADD_TOP_MOVIES_TO_LIST",
+        payload: moviesList
+    }
+}
+
 export const setMoviesFavorites = (moviesList: iMovieDetails) => {
     return {
         type: "SET_MOVIES_FAVORITES",
