@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const MainIndividualMovie = styled.main`
     display: flex;
@@ -8,6 +8,36 @@ export const MainIndividualMovie = styled.main`
     justify-content: center;
     gap: 40px;
     padding: 50px;
+    background: url(${props => props.datatype});
+    background-size: cover;
+    text-shadow: 0.1em 0.1em 0.2em black;
+`
+
+export const DivPlay = styled.div`
+    width: 144px;
+    height: 144px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+    position: relative;
+    right: 180px;
+`
+
+const sharedStyleImage = css`
+    position: absolute;
+`
+
+export const SecondContainer = styled.img`
+    ${sharedStyleImage}
+`
+
+export const FirstContainer = styled.img`
+    ${sharedStyleImage}
+`
+
+export const PlayImage = styled.img`
+    ${sharedStyleImage}
 `
 
 export const DivDetailsMovie = styled.div`
@@ -22,7 +52,7 @@ export const DivTextDetails = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 15px;
     font-size: small;
 `
 

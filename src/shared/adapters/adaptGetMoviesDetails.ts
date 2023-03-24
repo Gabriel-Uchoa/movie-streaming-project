@@ -11,7 +11,7 @@ const adaptGetMoviesDetails = (movieDetails: any) => {
         overview: movieDetails.overview,
         poster_path: movieDetails.poster_path,
         title: movieDetails.title,
-        vote_average: movieDetails.vote_average,
+        vote_average: Math.round(movieDetails.vote_average),
         runtime: `${hours}h ${remainingMinutes}min`
     }
     return adaptedMoviesDetails

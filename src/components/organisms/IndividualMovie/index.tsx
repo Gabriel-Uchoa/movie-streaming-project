@@ -5,14 +5,19 @@ import useSelectedMovie from "../../../hooks/useSelectedMovie";
 import useTrailers from "../../../hooks/useTrailers";
 import deleteMovieFavorite from "../../../services/api/deleteMovieFavorite";
 import postMoviesFavorites from "../../../services/api/postMoviesFavorites";
+import store from "../../../store";
 import { iDataUser } from "../../../types/store.interface";
 import FavoriteButton from "../../atoms/FavoriteButton";
 import MovieOverview from "../../atoms/MovieOverview";
 import MovieTitle from "../../atoms/MovieTitle";
-import MovieCover from "../../molecules/MovieCover";
 import MovieDetails from "../../molecules/MovieDetails";
 import TrailerCard from "../../molecules/TrailerCard";
-import { ContainsDivTrailers, DivDetailsMovie, DivTextDetails, DivTrailers, MainIndividualMovie, TrailersTitle } from "./styles"
+import { ContainsDivTrailers, DivDetailsMovie, DivPlay, DivTextDetails, DivTrailers, FirstContainer, MainIndividualMovie, PlayImage, SecondContainer, TrailersTitle } from "./styles"
+import playImage from '../../../assets/images/play-vector.png'
+import firstContainer from '../../../assets/images/play-first-container.png'
+import secondContainer from '../../../assets/images/play-second-container.png'
+import { setLastWatchMoviesAction } from "../../../store/movies/actions";
+
 
 
 const IndividualMovie: React.FC = () => {
@@ -24,6 +29,8 @@ const IndividualMovie: React.FC = () => {
     const trailers = useTrailers();
 
     const { id } = useParams();
+
+    const backdropImage = `https://image.tmdb.org/t/p/w500${selectedMovie?.backdrop_path}`
 
     const handleClickAddFavorite = async () => {
         if (id) {
@@ -63,8 +70,14 @@ const IndividualMovie: React.FC = () => {
     }
 
     return (
-        <MainIndividualMovie>
-            <MovieCover />
+        <MainIndividualMovie datatype={backdropImage}>
+            <DivPlay onClick={() => store.dispatch(setLastWatchMoviesAction(selectedMovie))}>
+                <SecondContainer src={secondContainer} alt="círculo que envolve o botão de play" />
+                <FirstContainer src={firstContainer} alt="círculo que envolve o botão de play" />
+                <PlayImage src={playImage} alt="símbolo de play" />
+            </DivPlay>
+            {/* <PlayImage onClick={() => store.dispatch(setLastWatchMoviesAction(selectedMovie))
+            } src={playImage} alt="imagem de iniciar reprodução" /> */}
             <DivDetailsMovie>
                 <MovieTitle />
                 <MovieOverview />

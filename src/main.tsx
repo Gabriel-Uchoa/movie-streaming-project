@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Background = styled.section`
-  background: linear-gradient(to right, #000000, #bdbdbd);
+  background: #2c2c2c;
 `
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

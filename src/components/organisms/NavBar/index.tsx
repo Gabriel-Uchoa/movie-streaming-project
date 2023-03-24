@@ -9,6 +9,7 @@ import { useSelector } from "react-redux"
 import store from "../../../store"
 import { useLogout } from "../../../store/user/action"
 import usePersistLogin from "../../../hooks/usePersistLogin"
+import { useLocation } from "react-router-dom"
 
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -32,7 +33,6 @@ const NavBar = () => {
         store.dispatch(useLogout(false))
         localStorage.clear()
     }, []);
-
 
     useEffect(() => {
         if (width >= 1080) {
