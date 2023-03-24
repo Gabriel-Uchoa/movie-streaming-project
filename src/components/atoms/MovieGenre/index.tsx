@@ -1,18 +1,13 @@
 import { iGenre } from "../../../types/movieDetails.interface"
-import { MovieGenreStyle } from "./styles"
+import { DivGenres, MovieGenreStyle } from "./styles"
 
 
-const MovieGenre: React.FC<{genres: iGenre[]}> = (props) => {
-    const separateGenres = () => {
-        const genreArray: string[] = []
-        props.genres.map((genre) => {
-            genreArray.push(genre.name)
-        })
-        return genreArray
-    }
-
+const MovieGenre: React.FC<{ genres: iGenre[] }> = (props) => {
     return (
-        <MovieGenreStyle>{separateGenres().join(' | ')}</MovieGenreStyle>
+        <DivGenres>
+            {props.genres.map((genre) => {
+                return <MovieGenreStyle>{genre.name}</MovieGenreStyle>
+            })}</DivGenres>
     )
 }
 

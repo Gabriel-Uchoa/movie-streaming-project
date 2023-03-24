@@ -8,8 +8,8 @@ export const NavBarStyle = styled.nav`
     color: white;
     justify-content: space-between;
     width: 100%;
-    padding: 30px;
     align-items: center;
+    padding: 28px 65px;
     gap: 20px;
     @media screen and (max-width: 1080px) {
         text-align: center;

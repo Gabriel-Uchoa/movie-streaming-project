@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const NavigationItemStyle = styled(Link)`
+export const NavigationItemStyle = styled(Link)<{ selected: boolean }>`
     cursor: pointer;
     color: white;
     text-decoration: none;
     padding: 0.5rem 0;
     margin: 0 0.7rem;
-    border-bottom: 2px solid transparent;
-    transition: border-bottom 0.2s ease-in-out;
+    border-bottom: ${({ selected }) => (selected ? "4px solid #FED530" : "2px solid transparent")};
+    transition: ${({ selected }) => (selected ? "none" : "0.2s ease-in-out")};
 
       
   &:hover {
