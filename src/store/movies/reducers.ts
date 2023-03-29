@@ -26,7 +26,6 @@ const moviesReducer = (state = MOVIES_INICIAL_STATE, action: iAction) => {
         case "ADD_TOP_MOVIES_TO_LIST":
             const newTopMoviesList = [...state.topMoviesList]
             newTopMoviesList.push(action.payload as never)
-            console.log(newTopMoviesList)
             return {
                 ...state,
                 topMoviesList: newTopMoviesList

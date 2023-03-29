@@ -4,6 +4,9 @@ export const DivTrailerCard = styled.div`
     display: flex;
     align-items: flex-end;
     justify-content: end;
+    @media screen and (max-width: 500px) {
+        margin: 25px;
+    }
 `
 
 export const TextStyle = styled.span`

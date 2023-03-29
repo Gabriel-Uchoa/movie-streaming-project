@@ -17,13 +17,23 @@ export const MainLastWatchMovies = styled.main`
 `
 
 export const TitleAndButton = styled.div`
-    color: white;
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    margin: 0 auto;
-    margin-bottom: 40px;
-    width: 85vw;
+    justify-content: space-between;
+    width: 800px;
+    margin: 0 auto 30px auto;
+    @media screen and (max-width: 860px) {
+        width: 700px;
+    }
+    @media screen and (max-width: 700px) {
+        width: 600px;
+    }
+    @media screen and (max-width: 630px) {
+        width: 550px;
+    }
+    @media screen and (max-width: 550px) {
+        width: 250px;
+    }
 `
 
 export const LinkCentralMovieCardStyle = styled(Link)`
