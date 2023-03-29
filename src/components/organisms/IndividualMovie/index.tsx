@@ -76,8 +76,6 @@ const IndividualMovie: React.FC = () => {
                 <FirstContainer src={firstContainer} alt="círculo que envolve o botão de play" />
                 <PlayImage src={playImage} alt="símbolo de play" />
             </DivPlay>
-            {/* <PlayImage onClick={() => store.dispatch(setLastWatchMoviesAction(selectedMovie))
-            } src={playImage} alt="imagem de iniciar reprodução" /> */}
             <DivDetailsMovie>
                 <MovieTitle />
                 <MovieOverview />

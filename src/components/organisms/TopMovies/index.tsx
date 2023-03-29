@@ -12,7 +12,6 @@ const TopMovies = () => {
     const [viewMore, setViewMore] = useState<boolean>(false)
     const topMoviesList = useSelector((state: iState) => state.movies.topMoviesList);
     const [firstMovie, ...remainingMovies] = topMoviesList
-    console.log(top)
     const firstFourNumbers = [...remainingMovies.slice(0, 4).map((movie) => movie)]
 
     const handleClick = () => {
