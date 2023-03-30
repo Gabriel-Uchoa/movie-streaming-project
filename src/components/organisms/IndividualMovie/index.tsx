@@ -18,8 +18,6 @@ import firstContainer from '../../../assets/images/play-first-container.png'
 import secondContainer from '../../../assets/images/play-second-container.png'
 import { setLastWatchMoviesAction } from "../../../store/movies/actions";
 
-
-
 const IndividualMovie: React.FC = () => {
     const user_data: iDataUser = useSelector((state: any) => state.user_info);
     const { movies_favorites } = useSelector((state: any) => state.movies);
@@ -71,7 +69,13 @@ const IndividualMovie: React.FC = () => {
 
     return (
         <MainIndividualMovie datatype={backdropImage}>
-            <DivPlay onClick={() => store.dispatch(setLastWatchMoviesAction(selectedMovie))}>
+            <DivPlay onClick={() => {
+                store.dispatch(setLastWatchMoviesAction(selectedMovie))
+                const storageLastWatched = localStorage.getItem("lastWatchedMovies") || "[]"
+                const parsedLastWatched = JSON.parse(storageLastWatched) || []
+                parsedLastWatched.push(selectedMovie)
+                localStorage.setItem("lastWatchedMovies", JSON.stringify(parsedLastWatched))
+            }}>
                 <SecondContainer src={secondContainer} alt="círculo que envolve o botão de play" />
                 <FirstContainer src={firstContainer} alt="círculo que envolve o botão de play" />
                 <PlayImage src={playImage} alt="símbolo de play" />

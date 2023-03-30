@@ -10,8 +10,6 @@ const getTopMoviesDetails = async (movieId: number) => {
 
     const adaptedResponse = adaptGetTopMoviesDetails(response.data)
 
-    store.dispatch(setTopMoviesAction(adaptedResponse))
-
     return adaptedResponse
 }
 

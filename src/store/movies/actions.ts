@@ -1,6 +1,6 @@
 import { iMovieDetails } from "../../types/movieDetails.interface";
 
-export const setMoviesListAction = (moviesList: iMovieDetails) => {
+export const setMoviesListAction = (moviesList: iMovieDetails[]) => {
     return {
         type: "ADD_MOVIES_TO_LIST",
         payload: moviesList
@@ -14,7 +14,7 @@ export const setLastWatchMoviesAction = (moviesList: iMovieDetails) => {
     }
 }
 
-export const setTopMoviesAction = (moviesList: iMovieDetails) => {
+export const setTopMoviesAction = (moviesList: iMovieDetails[]) => {
     return {
         type: "ADD_TOP_MOVIES_TO_LIST",
         payload: moviesList

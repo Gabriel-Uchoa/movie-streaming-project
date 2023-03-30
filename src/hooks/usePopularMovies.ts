@@ -1,6 +1,8 @@
 import { useEffect } from "react"
 import { useSelector } from "react-redux"
 import getPopularMovies from "../services/api/getPopularMovies"
+import store from "../store"
+import { setMoviesListAction } from "../store/movies/actions"
 import { iState } from "../types/store.interface"
 
 const usePopularMovies = () => {
@@ -10,7 +12,12 @@ const usePopularMovies = () => {
         if (moviesList.length) {
             return
         }
-        getPopularMovies()
+        const getMovies = async () => {
+            const response = await getPopularMovies()
+            store.dispatch(setMoviesListAction(response))
+        }
+
+    getMovies()
     }, [])
 }
 

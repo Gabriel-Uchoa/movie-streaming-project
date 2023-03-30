@@ -8,9 +8,13 @@ const getTopMovies = async () => {
 
     const topMovies = response.data
 
-    topMovies.results.map((movie: any) => {
-        getTopMoviesDetails(movie.id)
-    })
+    const topMoviesPromise = await Promise.all(
+        topMovies.results.map((movie: any) => {
+            return getTopMoviesDetails(movie.id)
+        })
+    )
+
+    return topMoviesPromise
 }
 
 export default getTopMovies

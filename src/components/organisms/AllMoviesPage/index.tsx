@@ -8,7 +8,6 @@ import { MainMoviePage, LinkStyle } from "./styles";
 
 const AllMoviesPage: React.FC = () => {
   const moviesList = useSelector((state: iState) => state.movies.moviesList);
-  console.log(moviesList)
 
   return (
     <>

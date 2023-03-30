@@ -5,8 +5,8 @@ import { DivGenres, MovieGenreStyle } from "./styles"
 const MovieGenre: React.FC<{ genres: iGenre[] }> = (props) => {
     return (
         <DivGenres>
-            {props.genres.map((genre) => {
-                return <MovieGenreStyle>{genre.name}</MovieGenreStyle>
+            {props.genres.map((genre, index) => {
+                return <MovieGenreStyle key={index}>{genre.name}</MovieGenreStyle>
             })}</DivGenres>
     )
 }

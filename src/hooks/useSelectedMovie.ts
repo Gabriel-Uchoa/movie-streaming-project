@@ -18,7 +18,9 @@ const useSelectedMovie = () => {
                 const topMovie = topMoviesList.find((movie) => movie.id === Number(id))
                 setSelectedMovie(topMovie)
             }
-    }, [id])
+    }, [id, moviesList, topMoviesList])
+    
+    console.log(topMoviesList)
 
     return selectedMovie
 }
