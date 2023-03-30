@@ -4,7 +4,7 @@ export const DivTrailerCard = styled.div`
     display: flex;
     align-items: flex-end;
     justify-content: end;
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 850px) {
         margin: 25px;
     }
 `

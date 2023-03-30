@@ -20,8 +20,6 @@ const useSelectedMovie = () => {
             }
     }, [id, moviesList, topMoviesList])
     
-    console.log(topMoviesList)
-
     return selectedMovie
 }
 

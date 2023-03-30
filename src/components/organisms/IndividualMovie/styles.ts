@@ -6,12 +6,12 @@ export const MainIndividualMovie = styled.main`
     flex-wrap: wrap;
     height: fit-content;
     justify-content: center;
-    align-items: flex-end;
     gap: 40px;
     padding: 50px;
     background: url(${props => props.datatype});
     background-size: cover;
     text-shadow: 0.1em 0.1em 0.2em black;
+    position: relative;
 `
 
 export const DivPlay = styled.div`
@@ -21,7 +21,25 @@ export const DivPlay = styled.div`
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    right: 170px;
+    position: absolute;
+    left: 150px;
+    top: 200px;
+    z-index: 1;
+    @media screen and (max-width: 1200px) {
+        left: 100px;
+        top: 280px;
+    }
+    @media screen and (max-width: 930px) {
+        position: relative;
+        top: 210px;
+        left: 0px;
+        margin: 50px;
+    }
+    @media screen and (max-width: 697px) {
+        left: 0px;
+        top: 0px;
+        margin: 30px;
+    }
 `
 
 const sharedStyleImage = css`
@@ -58,7 +76,7 @@ export const DivTextDetails = styled.div`
 
 export const ContainsDivTrailers = styled.div`
     width: 80vw;
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 850px) {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -74,7 +92,7 @@ export const DivTrailers = styled.div`
         flex-wrap: wrap;
         justify-content: flex-start;
     }
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 850px) {
         display: block;
     }
 `

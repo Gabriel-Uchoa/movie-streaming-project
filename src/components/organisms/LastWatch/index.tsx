@@ -15,7 +15,7 @@ const LastWatch = () => {
     const { noRepetitionMovies, firstMovie, firstFourNumbers } = useLastWatchMovies(movies)
 
     useEffect(() => {
-        const savedMovies = JSON.parse(localStorage.getItem('lastWatchedMovies') || '');
+        const savedMovies = JSON.parse(localStorage.getItem('lastWatchedMovies') || '[]');
         if (savedMovies) {
             setMovies(savedMovies);
         }

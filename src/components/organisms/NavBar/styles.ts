@@ -22,6 +22,7 @@ export const NavMenu = styled.ul<NavMenuProps>`
   justify-content: space-between;
   align-items: center;
   list-style: none;
+  z-index: 2;
 
   @media screen and (max-width: 1080px) {
     flex-direction: column;
