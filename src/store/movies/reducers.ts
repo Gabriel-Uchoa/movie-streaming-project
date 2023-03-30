@@ -10,25 +10,21 @@ const MOVIES_INICIAL_STATE = {
 const moviesReducer = (state = MOVIES_INICIAL_STATE, action: iAction) => {
     switch (action.type) {
         case "ADD_MOVIES_TO_LIST":
-            const newMoviesList = [...state.moviesList]
-            newMoviesList.push(action.payload as never)
             return {
                 ...state,
-                moviesList: newMoviesList
+                moviesList: action.payload
             }
         case "ADD_LAST_WATCH_MOVIES_TO_LIST":
             const newLastWatchMoviesList = [...state.lastWatchMoviesList]
-            newLastWatchMoviesList.push(action.payload as never)
+            newLastWatchMoviesList.unshift(action.payload as never)
             return {
                 ...state,
                 lastWatchMoviesList: newLastWatchMoviesList
             }
         case "ADD_TOP_MOVIES_TO_LIST":
-            const newTopMoviesList = [...state.topMoviesList]
-            newTopMoviesList.push(action.payload as never)
             return {
                 ...state,
-                topMoviesList: newTopMoviesList
+                topMoviesList: action.payload
             }
         case "SET_MOVIES_FAVORITES":
             const movieToAdd = action.payload;

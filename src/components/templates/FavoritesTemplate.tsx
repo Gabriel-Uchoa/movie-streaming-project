@@ -10,6 +10,7 @@ const FavoritesTemplate: React.FC = () => {
     const { movies_favorites } = useSelector((state: any) => state.movies);
 
     useFavoritesMovies(user_data.personal_info.id, movies_favorites)
+    
     return (
         <>
             <NavBar />
